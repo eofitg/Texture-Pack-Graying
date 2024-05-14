@@ -1,3 +1,50 @@
-mod:
+texture:
   block: true
-  item: true
+  item: false
+  colormap: true
+  environment: false
+  gui: false
+  particle: false
+  map: false
+  painting: false
+  armor: false
+  entity: false
+
+whitelist:
+  block:
+    carpet: false
+    ladder: true
+    wood: false
+    wool: true
+    bed: true
+    glass: false
+    stained_glass: false
+    hardened_clay: false
+    stained_hardened_clay: false
+    water:
+      flow: false
+      still: true
+    lava:
+      flow: false
+      still: false
+  particle:
+    footage: true
+  entity:
+    living: false
+    arrow: false
+    chest: false
+    banner: false
+    banner_base: false
+    boat: false
+    experience_orb: false
+    explosion: false
+    enchanting_table_book: true
+    end_portal: true
+    endercrystal: true
+    sign: true
+    armorstand: true
+
+isolate: true
+# Isolating Blocks and Items. For blocks where its form of the item is the block itself.
+
+
