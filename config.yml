@@ -1,14 +1,15 @@
 texture:
-  block: true
-  item: false
+  blocks: true
   colormap: true
+  entity: false
   environment: false
   gui: false
-  particle: false
+  items: false
   map: false
-  painting: false
   armor: false
-  entity: false
+  painting: false
+  particle: false
+  sky: true
 
 whitelist:
   block:
