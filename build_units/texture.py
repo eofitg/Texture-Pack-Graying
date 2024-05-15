@@ -18,7 +18,7 @@ from build_units.textures import particle
 def build(path):
     for folder in os.scandir(path):
         name = folder.name
-        if folder.is_file() or name.startswith('.'):
+        if name.startswith('.'):
             continue
         if name == 'blocks' and blocks.Blocks(folder.path).build():
             continue

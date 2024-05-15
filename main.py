@@ -56,7 +56,7 @@ def build():
                 # optfine.build(folder.path)
                 continue
             elif name == 'models':
-                # model.build(folder.path)
+                model.build(folder.path)
                 continue
             else:  # folders never need to build
                 # print(folder.path)
