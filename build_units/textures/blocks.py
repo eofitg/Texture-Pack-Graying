@@ -3,15 +3,15 @@ import os
 from build_units.build import Build
 import build_units.whitelist as wl
 import utils.grayscaling as gs
+import utils.operating_tools as ot
 import config_reader as cr
 
 
 class Blocks(Build):
 
-    vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
-
-    def __int__(self, texture_path):
-        super(Blocks, self).__init__(texture_path)
+    def __init__(self, texture_path):
+        vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
+        super(Blocks, self).__init__(vanilla_path, texture_path)
 
     # ./{pack}/assets/minecraft/textures/blocks
     def build(self):
@@ -40,11 +40,11 @@ class Blocks(Build):
                 json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
                 # ./output/{pack}/assets/minecraft/models/block
                 json_dst = self.texture_path[:-15] + 'models/block'
-                self.copytree(json_src, json_dst)
+                ot.copytree(json_src, json_dst)
 
                 for item in os.scandir(png_src):
                     if item.is_file() and item.name.startswith('wool'):
-                        self.copy(item.path, png_dst)
+                        ot.copy(item.path, png_dst)
 
             # change carpet but not wool
             else:
@@ -58,12 +58,12 @@ class Blocks(Build):
                 # ./output/{pack}/assets/minecraft/models/block
                 json_dst = output_path[:-15] + 'models/block'
                 # print(json_dst)
-                self.copytree(json_src, json_dst)
+                ot.copytree(json_src, json_dst)
 
                 for item in os.scandir(png_src):
                     if item.is_file() and item.name.startswith('wool') and item.name.endswith('.png'):
                         if 'wool_colored_white.png' not in texture_list:
-                            self.copy(item.path, png_dst)
+                            ot.copy(item.path, png_dst)
                         else:
                             img = gs.build(item.path)
                             if not os.path.exists(png_dst):
@@ -75,8 +75,7 @@ class Blocks(Build):
                 vanilla_list.remove(t)
 
         checklist = super().build()
-
         for item in checklist:
             if item not in vanilla_list:
-                self.copy(self.vanilla_path + item, output_path)
+                ot.copy(self.vanilla_path + item, output_path)
 

@@ -1,10 +1,9 @@
 import os
-import shutil
-import importlib
 
 import config_reader as cr
 import utils.decompress as dec
 import utils.grayscaling as gs
+import utils.operating_tools as ot
 from utils import clean
 from build_units import texture
 from build_units import optfine
@@ -27,18 +26,6 @@ def get_packs():
     return list(set(dirs))
 
 
-def copy(src, dst):
-    if not os.path.exists(dst):
-        os.makedirs(dst)
-    shutil.copy(src, dst)
-
-
-def copytree(src, dst):
-    if os.path.exists(dst):
-        shutil.rmtree(dst)
-    shutil.copytree(src, dst)
-
-
 def build():
     packs = get_packs()
 
@@ -48,7 +35,7 @@ def build():
         # ./{pack}/
         for file in os.scandir(path):
             if file.is_file() and not file.name.startswith('.'):
-                copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
+                ot.copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
 
         path = path + '/assets/minecraft/'
         if not os.path.exists(path):
@@ -60,7 +47,7 @@ def build():
             dst = output_path + folder.path[len(input_path):]
             if folder.is_file():
                 if not name.startswith('.'):
-                    copy(folder.path, dst[:-len(folder.name)])
+                    ot.copy(folder.path, dst[:-len(folder.name)])
                 continue
             if name == 'textures':
                 texture.build(folder.path)
@@ -75,7 +62,7 @@ def build():
                 # print(folder.path)
                 pass
 
-            copytree(folder.path, dst)
+            ot.copytree(folder.path, dst)
 
 
 build()

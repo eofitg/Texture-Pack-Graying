@@ -3,16 +3,16 @@ import utils.operating_tools as ot
 import config_reader as cr
 
 
-class Entity(Build):
+class Items(Build):
 
     def __init__(self, texture_path):
-        vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/entity/'
-        super(Entity, self).__init__(vanilla_path, texture_path)
+        vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/items/'
+        super(Items, self).__init__(vanilla_path, texture_path)
 
-    # ./{pack}/assets/minecraft/textures/entity
+    # ./{pack}/assets/minecraft/textures/items
     def build(self):
 
-        if not cr.get('texture.entity'):
+        if not cr.get('texture.items'):
             return
 
         output_path = self.output_path + self.texture_path[len(self.input_path):]

@@ -1,17 +1,17 @@
 # abstract build units
 import os
-import shutil
 
 import utils.grayscaling as gs
+import utils.operating_tools as ot
 
 
 class Build(object):
 
     input_path = './input/'
     output_path = './output/'
-    vanilla_path = ''
 
-    def __init__(self, texture_path):
+    def __init__(self, vanilla_path, texture_path):
+        self.vanilla_path = vanilla_path
         self.texture_path = texture_path
 
         vanilla_list = []
@@ -40,19 +40,8 @@ class Build(object):
                     check_list.remove(img.name)
                     continue
             # files need to keep
-            self.copy(img.path, self.output_path + path[len(self.input_path):])
+            ot.copy(img.path, self.output_path + path[len(self.input_path):])
 
         # return textures this pack didn't modify
         return check_list
 
-    @classmethod
-    def copy(cls, src, dst):
-        if not os.path.exists(dst):
-            os.makedirs(dst)
-        shutil.copy(src, dst)
-
-    @classmethod
-    def copytree(cls, src, dst):
-        if os.path.exists(dst):
-            shutil.rmtree(dst)
-        shutil.copytree(src, dst)
