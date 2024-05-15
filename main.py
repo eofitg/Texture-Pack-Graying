@@ -6,9 +6,9 @@ import config_reader as cr
 import utils.decompress as dec
 import utils.grayscaling as gs
 from utils import clean
-from build_units import textures
-from build_units import mcpatcher
-from build_units import models
+from build_units import texture
+from build_units import optfine
+from build_units import model
 
 
 input_path = './input/'
@@ -27,32 +27,55 @@ def get_packs():
     return list(set(dirs))
 
 
+def copy(src, dst):
+    if not os.path.exists(dst):
+        os.makedirs(dst)
+    shutil.copy(src, dst)
+
+
+def copytree(src, dst):
+    if os.path.exists(dst):
+        shutil.rmtree(dst)
+    shutil.copytree(src, dst)
+
+
 def build():
     packs = get_packs()
 
     for pack in packs:
-        path = input_path + pack + '/assets/minecraft'
+
+        path = input_path + pack
+        # ./{pack}/
+        for file in os.scandir(path):
+            if file.is_file() and not file.name.startswith('.'):
+                copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
+
+        path = path + '/assets/minecraft/'
         if not os.path.exists(path):
             error_message = 'Incorrect pack folder at \"' + path + '\".'
             print(error_message)
-
+        # ./{pack}/assets/minecraft/
         for folder in os.scandir(path):
             name = folder.name
-            if folder.is_file() or name.startswith('.'):
+            dst = output_path + folder.path[len(input_path):]
+            if folder.is_file():
+                if not name.startswith('.'):
+                    copy(folder.path, dst[:-len(folder.name)])
                 continue
             if name == 'textures':
-                textures.build(folder.path)
+                texture.build(folder.path)
                 continue
             elif name == 'mcpatcher':  # optfine folder, like sky and ctm textures
-                mcpatcher.build(folder.path)
+                # optfine.build(folder.path)
                 continue
             elif name == 'models':
-                models.build(folder.path)
+                # model.build(folder.path)
                 continue
             else:  # folders never need to build
                 # print(folder.path)
                 pass
-            shutil.copytree(folder.path, output_path + folder.path[len(input_path):])
+
+            copytree(folder.path, dst)
 
 
 build()

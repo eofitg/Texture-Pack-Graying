@@ -1,0 +1,2 @@
+# ./{pack}/assets/minecraft/mcpatcher
+
