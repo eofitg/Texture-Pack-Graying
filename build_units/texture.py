@@ -1,6 +1,8 @@
 import os
 
 from build_units.textures import blocks
+from build_units.textures import colormap
+from build_units.textures import entity
 
 
 # ./{pack}/assets/minecraft/textures
@@ -10,11 +12,9 @@ def build(path):
         if folder.is_file() or name.startswith('.'):
             continue
         if name == 'blocks':
-            block_builder = blocks.Blocks(folder.path)
-            block_builder.build()
-            # print(block_builder.vanilla_path)
+            blocks.Blocks(folder.path).build()
         elif name == 'colormap':
-            pass
+            colormap.Colormap(folder.path).build()
         elif name == 'entity':
             pass
         elif name == 'environment':

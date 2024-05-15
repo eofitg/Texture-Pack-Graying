@@ -80,22 +80,3 @@ class Blocks(Build):
             if item not in vanilla_list:
                 self.copy(self.vanilla_path + item, output_path)
 
-
-'''
-carpet: false
-ladder: true
-wood: false
-wool: true
-bed: true
-tnt: false
-glass: false
-stained_glass: false
-hardened_clay: false
-stained_hardened_clay: false
-water:
-  flow: false
-  still: true
-lava:
-  flow: false
-  still: false
-'''
