@@ -16,6 +16,7 @@ class Particle(Build):
             return False
 
         output_path = ot.get_output_path(self.texture_path)
+        self.whitelist_check()
 
         checklist = super().build()
         for item in checklist:

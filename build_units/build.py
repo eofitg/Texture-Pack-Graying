@@ -1,10 +1,11 @@
-# abstract build units
 import os
 
 import utils.grayscaling as gs
+import build_units.whitelist as wl
 import utils.operating_tools as ot
 
 
+# abstract build unit
 class Build(object):
 
     def __init__(self, vanilla_path, texture_path):
@@ -46,3 +47,7 @@ class Build(object):
         # return textures this pack didn't modify
         return check_list
 
+    def whitelist_check(self):
+        for t in self.vanilla_list:
+            if wl.exist(t):
+                self.vanilla_list.remove(t)

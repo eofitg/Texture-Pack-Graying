@@ -16,8 +16,8 @@ class Armor(Build):
             return False
 
         output_path = ot.get_output_path(self.texture_path)
-        checklist = super().build()
 
+        checklist = super().build()
         for item in checklist:
             ot.copy(self.vanilla_path + item, output_path)
 

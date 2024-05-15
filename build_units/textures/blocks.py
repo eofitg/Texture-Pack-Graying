@@ -1,7 +1,6 @@
 import os
 
 from build_units.build import Build
-import build_units.whitelist as wl
 import utils.grayscaling as gs
 import utils.operating_tools as ot
 import config_reader as cr
@@ -26,7 +25,6 @@ class Blocks(Build):
         if not cr.get('texture.blocks'):
             return False
 
-        vanilla_list = self.vanilla_list
         texture_list = self.texture_list
         output_path = ot.get_output_path(self.texture_path)
         # print(output_path)
@@ -77,10 +75,7 @@ class Blocks(Build):
                                 os.makedirs(png_dst)
                             img.save(png_dst + item.name)
 
-        for t in vanilla_list:
-            if wl.exist(t):
-                vanilla_list.remove(t)
-        self.vanilla_list = vanilla_list
+        self.whitelist_check()
 
         checklist = super().build()
         for item in checklist:

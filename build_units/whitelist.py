@@ -42,6 +42,13 @@ def exist(item):
         return True
 
     # # # # #
+    # particle
+    pa = wl + 'particle.'
+    # footage
+    if item.startswith('footage') and cr.get(pa + 'footage'):
+        return True
+
+    # # # # #
     # entity
     en = wl + 'entity.'
     # living
@@ -51,7 +58,6 @@ def exist(item):
                'guardian_elder.png', 'iron_golem.png', 'silverfish.png', 'snowman.png', 'spider_eyes.png',
                'squid.png', 'witch.png', 'zombie_pigman.png']
     if item in livings and cr.get(en + 'living'):
-        
         return True
     # armorstand
     if item.startswith('armorstand') and cr.get(en + 'armorstand'):
