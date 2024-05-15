@@ -44,7 +44,7 @@ def build():
         # ./{pack}/assets/minecraft/
         for folder in os.scandir(path):
             name = folder.name
-            dst = output_path + folder.path[len(input_path):]
+            dst = ot.get_output_path(folder.path)
             if folder.is_file():
                 if not name.startswith('.'):
                     ot.copy(folder.path, dst[:-len(folder.name)])

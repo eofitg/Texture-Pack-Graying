@@ -20,25 +20,25 @@ def build(path):
         name = folder.name
         if folder.is_file() or name.startswith('.'):
             continue
-        if name == 'blocks':
-            blocks.Blocks(folder.path).build()
-        elif name == 'colormap':
-            colormap.Colormap(folder.path).build()
-        elif name == 'entity':
-            entity.Entity(folder.path).build()
-        elif name == 'environment':
-            environment.Environment(folder.path).build()
-        elif name == 'gui':
-            gui.Gui(folder.path).build()
-        elif name == 'items':
-            items.Items(folder.path).build()
-        elif name == 'map':
-            map.Map(folder.path).build()
-        elif name == 'armor':
-            armor.Armor(folder.path).build()
-        elif name == 'painting':
-            painting.Painting(folder.path).build()
-        elif name == 'particle':
-            particle.Particle(folder.path).build()
-        else:
-            ot.copytree(folder.path, ot.get_output_path(folder.path))
+        if name == 'blocks' and blocks.Blocks(folder.path).build():
+            continue
+        elif name == 'colormap' and colormap.Colormap(folder.path).build():
+            continue
+        elif name == 'entity' and entity.Entity(folder.path).build():
+            continue
+        elif name == 'environment' and environment.Environment(folder.path).build():
+            continue
+        elif name == 'gui' and gui.Gui(folder.path).build():
+            continue
+        elif name == 'items' and items.Items(folder.path).build():
+            continue
+        elif name == 'map' and map.Map(folder.path).build():
+            continue
+        elif name == 'armor' and armor.Armor(folder.path).build():
+            continue
+        elif name == 'painting' and painting.Painting(folder.path).build():
+            continue
+        elif name == 'particle' and particle.Particle(folder.path).build():
+            continue
+
+        ot.copytree(folder.path, ot.get_output_path(folder.path))

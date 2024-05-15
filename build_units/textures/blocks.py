@@ -24,7 +24,7 @@ class Blocks(Build):
     def build(self):
 
         if not cr.get('texture.blocks'):
-            return
+            return False
 
         vanilla_list = self.vanilla_list
         texture_list = self.texture_list
@@ -86,3 +86,4 @@ class Blocks(Build):
         for item in checklist:
             ot.copy(self.vanilla_path + item, output_path)
 
+        return True

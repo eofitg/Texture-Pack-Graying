@@ -18,5 +18,6 @@ def copytree(src, dst):
     shutil.copytree(src, dst)
 
 
+# No '/' at the end of path
 def get_output_path(path):
     return output_path + path[len(input_path):]

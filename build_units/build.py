@@ -40,11 +40,11 @@ class Build(object):
                     pass
             # files need to keep
             if img.is_file():
-                ot.copy(img.path, self.output_path + path[len(self.input_path):])
+                ot.copy(img.path, ot.get_output_path(path))
             elif img.is_dir():
                 # print(img.path)
                 # print(self.output_path + path[len(self.input_path):] + img.name)
-                ot.copytree(img.path, self.output_path + path[len(self.input_path):] + '/' + img.name)
+                ot.copytree(img.path, ot.get_output_path(path) + '/' + img.name)
 
         # return textures this pack didn't modify
         return check_list
