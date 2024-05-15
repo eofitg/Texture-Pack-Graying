@@ -4,7 +4,7 @@ texture:
   # but still, some of their textures can never be changed.
   colormap: true
   entity: true
-  environment: false
+  environment: true
   gui: false
   items: false
   map: false
