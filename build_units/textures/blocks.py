@@ -13,6 +13,13 @@ class Blocks(Build):
         vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
         super(Blocks, self).__init__(vanilla_path, texture_path)
 
+        temp = []
+        for img in os.scandir(texture_path):
+            if img.is_file() and img.name.endswith('.png'):
+                if img.name in self.vanilla_list:
+                    temp.append(img.name)
+        self.texture_list = temp
+
     # ./{pack}/assets/minecraft/textures/blocks
     def build(self):
 
@@ -73,9 +80,9 @@ class Blocks(Build):
         for t in vanilla_list:
             if wl.exist(t):
                 vanilla_list.remove(t)
+        self.vanilla_list = vanilla_list
 
         checklist = super().build()
         for item in checklist:
-            if item not in vanilla_list:
-                ot.copy(self.vanilla_path + item, output_path)
+            ot.copy(self.vanilla_path + item, output_path)
 

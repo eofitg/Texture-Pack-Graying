@@ -3,7 +3,7 @@ texture:
   # The color of the grass/leaves depends on the colormap,
   # but still, some of their textures can never be changed.
   colormap: true
-  entity: false
+  entity: true
   environment: false
   gui: false
   items: false
@@ -34,19 +34,19 @@ whitelist:
   particle:
     footage: true
   entity:
-    living: false
-    arrow: false
+    living: true
+    armorstand: false
+    arrow: true
     chest: false
-    banner: false
     banner_base: false
     boat: false
+    enchanting_table_book: false
+    endercrystal: false
     experience_orb: false
     explosion: false
-    enchanting_table_book: true
-    end_portal: true
-    endercrystal: true
-    sign: true
-    armorstand: true
+    lead_knot: false
+    minecart: false
+    sign: false
 
 # Isolating Blocks and Items.
 # For blocks where its form of the item is the block itself.

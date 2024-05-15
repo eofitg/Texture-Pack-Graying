@@ -22,25 +22,29 @@ class Build(object):
                 line = file.readline().replace('\n', '')
         self.vanilla_list = vanilla_list
 
-        temp = []
-        for img in os.scandir(texture_path):
-            if img.is_file() and img.name.endswith('.png'):
-                if img.name in vanilla_list:
-                    temp.append(img.name)
-        self.texture_list = temp
-
     def build(self):
         check_list = self.vanilla_list
         path = self.texture_path
 
         for img in os.scandir(path):
-            if img.is_file() and img.name.endswith('.png'):
-                if img.name in check_list:
+            if img.name in check_list:
+                if img.is_file() and img.name.endswith('.png'):
                     gs.build_file(img.path, img.name)
                     check_list.remove(img.name)
                     continue
+                elif img.is_dir():
+                    gs.build_dir(img.path)
+                    check_list.remove(img.name)
+                    continue
+                else:
+                    pass
             # files need to keep
-            ot.copy(img.path, self.output_path + path[len(self.input_path):])
+            if img.is_file():
+                ot.copy(img.path, self.output_path + path[len(self.input_path):])
+            elif img.is_dir():
+                # print(img.path)
+                # print(self.output_path + path[len(self.input_path):] + img.name)
+                ot.copytree(img.path, self.output_path + path[len(self.input_path):] + '/' + img.name)
 
         # return textures this pack didn't modify
         return check_list
