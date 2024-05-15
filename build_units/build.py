@@ -7,9 +7,6 @@ import utils.operating_tools as ot
 
 class Build(object):
 
-    input_path = './input/'
-    output_path = './output/'
-
     def __init__(self, vanilla_path, texture_path):
         self.vanilla_path = vanilla_path
         self.texture_path = texture_path

@@ -15,7 +15,7 @@ class Colormap(Build):
         if not cr.get('texture.colormap'):
             return False
 
-        output_path = self.output_path + self.texture_path[len(self.input_path):]
+        output_path = ot.get_output_path(self.texture_path)
 
         checklist = super().build()
         for item in checklist:

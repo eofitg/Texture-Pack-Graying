@@ -9,7 +9,7 @@ texture:
   items: false
   map: false
   armor: false
-  painting: false
+  painting: true
   particle: false
   sky: true
 

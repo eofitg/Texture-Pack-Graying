@@ -28,7 +28,7 @@ class Blocks(Build):
 
         vanilla_list = self.vanilla_list
         texture_list = self.texture_list
-        output_path = self.output_path + self.texture_path[len(self.input_path):]
+        output_path = ot.get_output_path(self.texture_path)
         # print(output_path)
 
         # carpet

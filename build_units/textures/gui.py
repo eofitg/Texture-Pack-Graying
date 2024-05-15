@@ -15,10 +15,13 @@ class Gui(Build):
         if not cr.get('texture.gui'):
             return False
 
-        output_path = self.output_path + self.texture_path[len(self.input_path):]
-        checklist = super().build()
+        output_path = ot.get_output_path(self.texture_path)
 
+        checklist = super().build()
         for item in checklist:
-            ot.copy(self.vanilla_path + item, output_path)
+            if item.endswith('.png'):
+                ot.copy(self.vanilla_path + item, output_path)
+            else:
+                ot.copytree(self.vanilla_path + item, output_path)
 
         return True

@@ -26,7 +26,7 @@ class Entity(Build):
             return False
 
         vanilla_list = self.vanilla_list
-        output_path = self.output_path + self.texture_path[len(self.input_path):]
+        output_path = ot.get_output_path(self.texture_path)
 
         for t in vanilla_list:
             if wl.exist(t):
