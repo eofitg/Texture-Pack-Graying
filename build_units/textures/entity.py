@@ -1,15 +1,15 @@
 import os
 
-from build_units.build import Build
+from build_units.build_texture import BuildTexture
 import utils.operating_tools as ot
 import config_reader as cr
 
 
-class Entity(Build):
+class Entity(BuildTexture):
 
     def __init__(self, texture_path):
         vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/entity/'
-        super(Entity, self).__init__(vanilla_path, texture_path)
+        super().__init__(vanilla_path, texture_path)
 
         temp = []
         for img in os.scandir(texture_path):
@@ -18,13 +18,13 @@ class Entity(Build):
                     temp.append(img.name)
         self.texture_list = temp
 
-    # ./{pack}/assets/minecraft/textures/entity
+    # ./input/{pack}/assets/minecraft/textures/entity
     def build(self):
 
         if not cr.get('texture.entity'):
             return False
 
-        output_path = ot.get_output_path(self.texture_path)
+        output_path = ot.get_output_path(self.resource_path)
         self.whitelist_check()
 
         checklist = super().build()

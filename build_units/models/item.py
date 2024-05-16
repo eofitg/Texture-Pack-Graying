@@ -1,21 +1,12 @@
-import os
-
-import utils.operating_tools as ot
+from build_units.build_model import BuildModel
 
 
-class Item(object):
+class Item(BuildModel):
 
     def __init__(self, json_path):
-        self.vanilla_path = './resource/1.8.9/assets/minecraft/gray/models/item/'
-        self.json_path = json_path
+        vanilla_path = './resource/1.8.9/assets/minecraft/gray/models/item/'
+        super().__init__(vanilla_path, json_path)
 
-    # ./{pack}/assets/minecraft/models/item
+    # ./input/{pack}/assets/minecraft/models/item
     def build(self):
-
-        output_path = ot.get_output_path(self.json_path)
-
-        for mdl in os.scandir(self.json_path):
-            if not os.path.exists(ot.get_output_path(mdl.path)):
-                ot.copy(mdl.path, output_path)
-
-        return True
+        return super().build()

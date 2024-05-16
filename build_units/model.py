@@ -17,6 +17,6 @@ def build(path):
         elif name == 'item' and item.Item(folder.path).build():
             continue
 
-        ot.copytree(folder.path, ot.get_output_path(folder.path))
+        ot.build_anyway(folder.path)
 
 

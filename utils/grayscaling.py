@@ -1,6 +1,8 @@
 import os
 from PIL import Image
 
+import utils.operating_tools as ot
+
 input_path = './input/'
 output_path = './output/'
 
@@ -28,6 +30,8 @@ def build_dir(src):
         elif item.is_file() and item.path.endswith('.png'):
             result_img = build(item.path)
             save(result_img, item.path, item.name)
+        else:
+            ot.build_anyway(item.path)
 
 
 def build_file(src, name):

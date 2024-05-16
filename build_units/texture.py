@@ -1,6 +1,7 @@
 import os
 
 import utils.operating_tools as ot
+import config_reader as cr
 
 from build_units.textures import blocks
 from build_units.textures import colormap
@@ -16,29 +17,50 @@ from build_units.textures import particle
 
 # ./{pack}/assets/minecraft/textures
 def build(path):
+
+    textures = ['blocks', 'colormap', 'entity', 'environment', 'gui', 'items', 'map', 'armor', 'painting', 'particle']
+    check = textures
+
     for folder in os.scandir(path):
         name = folder.name
         if name.startswith('.'):
             continue
         if name == 'blocks' and blocks.Blocks(folder.path).build():
+            check.remove(name)
             continue
         elif name == 'colormap' and colormap.Colormap(folder.path).build():
+            check.remove(name)
             continue
         elif name == 'entity' and entity.Entity(folder.path).build():
+            check.remove(name)
             continue
         elif name == 'environment' and environment.Environment(folder.path).build():
+            check.remove(name)
             continue
-        elif name == 'gui' and gui.Gui(folder.path).build():
+        elif name == 'gui' and gui.GUI(folder.path).build():
+            check.remove(name)
             continue
         elif name == 'items' and items.Items(folder.path).build():
+            check.remove(name)
             continue
         elif name == 'map' and map.Map(folder.path).build():
+            check.remove(name)
             continue
-        elif name == 'armor' and armor.Armor(folder.path).build():
+        elif name == 'models' and armor.Armor(folder.path).build():
+            check.remove(name)
             continue
         elif name == 'painting' and painting.Painting(folder.path).build():
+            check.remove(name)
             continue
         elif name == 'particle' and particle.Particle(folder.path).build():
+            check.remove(name)
             continue
 
-        ot.copytree(folder.path, ot.get_output_path(folder.path))
+        ot.build_anyway(folder.path)
+
+    for texture in textures:
+        if cr.get('texture.' + texture) and texture in check:
+            vanilla = './resource/1.8.9/assets/minecraft/gray/textures/'
+            src = vanilla + texture
+            dst = ot.get_output_path(path + '/' + texture)
+            ot.copytree(src, dst)

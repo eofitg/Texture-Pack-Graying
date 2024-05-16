@@ -1,16 +1,16 @@
 import os
 
-from build_units.build import Build
+from build_units.build_texture import BuildTexture
 import utils.grayscaling as gs
 import utils.operating_tools as ot
 import config_reader as cr
 
 
-class Blocks(Build):
+class Blocks(BuildTexture):
 
     def __init__(self, texture_path):
         vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
-        super(Blocks, self).__init__(vanilla_path, texture_path)
+        super().__init__(vanilla_path, texture_path)
 
         temp = []
         for img in os.scandir(texture_path):
@@ -19,14 +19,14 @@ class Blocks(Build):
                     temp.append(img.name)
         self.texture_list = temp
 
-    # ./{pack}/assets/minecraft/textures/blocks
+    # ./input/{pack}/assets/minecraft/textures/blocks
     def build(self):
 
         if not cr.get('texture.blocks'):
             return False
 
         texture_list = self.texture_list
-        output_path = ot.get_output_path(self.texture_path)
+        output_path = ot.get_output_path(self.resource_path)
         # print(output_path)
 
         # carpet
@@ -39,12 +39,12 @@ class Blocks(Build):
                 png_src = './resource/1.8.9/assets/minecraft/textures/blocks/'
                 png_dst = output_path + '/gray/'
                 if 'wool_colored_white.png' in texture_list:  # use original texture or this pack's
-                    png_src = self.texture_path
+                    png_src = self.resource_path
 
                 # change carpets' json files to custom location
                 json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
                 # ./output/{pack}/assets/minecraft/models/block
-                json_dst = self.texture_path[:-15] + 'models/block'
+                json_dst = self.resource_path[:-15] + 'models/block'
                 ot.copytree(json_src, json_dst)
 
                 for item in os.scandir(png_src):
@@ -56,7 +56,7 @@ class Blocks(Build):
                 png_src = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
                 png_dst = output_path + '/gray/'
                 if 'wool_colored_white.png' in texture_list:
-                    png_src = self.texture_path
+                    png_src = self.resource_path
 
                 # change carpets' json files to custom location
                 json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'

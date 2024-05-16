@@ -18,6 +18,23 @@ def copytree(src, dst):
     shutil.copytree(src, dst)
 
 
-# No '/' at the end of path
+# Copy this file/folder to dst path anyway
+def copy_anyway(src, dst):
+    s = str(src)
+    if s.endswith('/'):
+        s = src[:-1]
+    name = s.split('/')[-1]
+    if name.find('.') < 0:  # dirs
+        copytree(src, dst)
+    else:  # files
+        copy(src, dst[:-len(name)])
+
+
+# Add this file/folder from 'input' to 'output' anyway
+def build_anyway(src):
+    copy_anyway(src, get_output_path(src))
+
+
+# Turn input_path into output_path (No '/' at the end of path)
 def get_output_path(path):
     return output_path + path[len(input_path):]

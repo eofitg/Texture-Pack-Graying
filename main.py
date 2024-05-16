@@ -2,7 +2,6 @@ import os
 
 import config_reader as cr
 import utils.decompress as dec
-import utils.grayscaling as gs
 import utils.operating_tools as ot
 from utils import clean
 from build_units import texture
@@ -32,7 +31,7 @@ def build():
     for pack in packs:
 
         path = input_path + pack
-        # ./{pack}/
+        # ./input/{pack}/
         for file in os.scandir(path):
             if file.is_file() and not file.name.startswith('.'):
                 ot.copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
@@ -41,28 +40,23 @@ def build():
         if not os.path.exists(path):
             error_message = 'Incorrect pack folder at \"' + path + '\".'
             print(error_message)
-        # ./{pack}/assets/minecraft/
+        # ./input/{pack}/assets/minecraft/
         for folder in os.scandir(path):
             name = folder.name
-            dst = ot.get_output_path(folder.path)
-            if folder.is_file():
-                if not name.startswith('.'):
-                    ot.copy(folder.path, dst[:-len(folder.name)])
+            if name.startswith('.'):
                 continue
             if name == 'textures':
                 texture.build(folder.path)
                 continue
             elif name == 'mcpatcher':  # optfine folder, like sky and ctm textures
-                # optfine.build(folder.path)
+                optfine.build(folder.path)
                 continue
             elif name == 'models':
                 model.build(folder.path)
                 continue
-            else:  # folders never need to build
-                # print(folder.path)
-                pass
 
-            ot.copytree(folder.path, dst)
+            # folders never need to build
+            ot.build_anyway(folder.path)
 
 
 build()
