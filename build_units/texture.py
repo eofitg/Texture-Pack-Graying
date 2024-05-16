@@ -15,7 +15,7 @@ from build_units.textures import painting
 from build_units.textures import particle
 
 
-# ./{pack}/assets/minecraft/textures
+# ./input/{pack}/assets/minecraft/textures
 def build(path):
 
     textures = ['blocks', 'colormap', 'entity', 'environment', 'gui', 'items', 'map', 'armor', 'painting', 'particle']
@@ -58,6 +58,7 @@ def build(path):
 
         ot.build_anyway(folder.path)
 
+    # folders this pack didn't modify but need to grayscale
     for texture in textures:
         if cr.get('texture.' + texture) and texture in check:
             vanilla = './resource/1.8.9/assets/minecraft/gray/textures/'

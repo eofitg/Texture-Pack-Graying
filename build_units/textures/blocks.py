@@ -78,7 +78,15 @@ class Blocks(BuildTexture):
         self.whitelist_check()
 
         checklist = super().build()
+        dynamic_blocks = ['fire_layer_0.png', 'fire_layer_1.png', 'lava_flow.png', 'lava_still.png', 'portal.png',
+                          'prismarine_rough.png', 'sea_lantern.png', 'water_flow.png', 'water_still.png', ]
+        # files this pack didn't modify but need to grayscale
         for item in checklist:
             ot.copy(self.vanilla_path + item, output_path)
+            # dynamic blocks need .mcmeta files support
+            if item in dynamic_blocks:
+                meta = item + '.mcmeta'
+                if not os.path.exists(output_path + '/' + meta):
+                    ot.copy(self.vanilla_path + meta, output_path)
 
         return True

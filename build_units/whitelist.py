@@ -25,6 +25,9 @@ def exist(item):
         return True
     if item.startswith('glass') and cr.get(bl + 'glass'):
         return True
+    # portal
+    if item.startswith('portal') and cr.get(bl + 'portal'):
+        return True
     # harden clay
     if item.startswith('hardened_clay_') and cr.get(bl + 'stained_hardened_clay'):
         return True

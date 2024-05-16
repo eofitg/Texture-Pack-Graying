@@ -23,6 +23,7 @@ whitelist:
     tnt: false
     glass: false
     stained_glass: false
+    portal: false
     hardened_clay: false
     stained_hardened_clay: false
     water:

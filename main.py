@@ -9,6 +9,9 @@ from build_units import optfine
 from build_units import model
 
 
+building_message = True
+
+
 input_path = './input/'
 output_path = './output/'
 
@@ -32,6 +35,9 @@ def build():
 
         path = input_path + pack
         # ./input/{pack}/
+        if building_message:
+            print('Building ' + path + ' ......')
+
         for file in os.scandir(path):
             if file.is_file() and not file.name.startswith('.'):
                 ot.copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
@@ -60,3 +66,4 @@ def build():
 
 
 build()
+print("Done.")

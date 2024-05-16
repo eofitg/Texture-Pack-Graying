@@ -6,8 +6,9 @@ from build_units.models import block
 from build_units.models import item
 
 
-# ./{pack}/assets/minecraft/models
+# ./input/{pack}/assets/minecraft/models
 def build(path):
+
     for folder in os.scandir(path):
         name = folder.name
         if name.startswith('.'):
