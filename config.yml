@@ -12,15 +12,17 @@ texture:
   armor: false
   painting: true
   particle: false
-  sky: true
+  optfine:
+    sky: true
+    anim: true
 
 whitelist:
   blocks:
     carpet: false
-    ladder: true
+    ladder: false
     wood: false
-    wool: true
-    bed: true
+    wool: false
+    bed: false
     tnt: false
     glass: false
     stained_glass: false
