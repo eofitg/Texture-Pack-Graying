@@ -9,6 +9,7 @@ from build_units.textures import entity
 from build_units.textures import environment
 from build_units.textures import gui
 from build_units.textures import items
+from build_units.textures import underwater
 from build_units.textures import map
 from build_units.textures import armor
 from build_units.textures import painting
@@ -18,7 +19,7 @@ from build_units.textures import particle
 # ./input/{pack}/assets/minecraft/textures
 def build(path):
 
-    textures = ['blocks', 'colormap', 'entity', 'environment', 'gui', 'items', 'map', 'armor', 'painting', 'particle']
+    textures = ['blocks', 'colormap', 'entity', 'environment', 'gui', 'items', 'underwater', 'map', 'armor', 'painting', 'particle']
     check = textures
 
     for folder in os.scandir(path):
@@ -43,11 +44,14 @@ def build(path):
         elif name == 'items' and items.Items(folder.path).build():
             check.remove(name)
             continue
+        elif name == 'misc' and underwater.Underwater(folder.path).build():
+            check.remove('underwater')
+            continue
         elif name == 'map' and map.Map(folder.path).build():
             check.remove(name)
             continue
         elif name == 'models' and armor.Armor(folder.path).build():
-            check.remove(name)
+            check.remove('armor')
             continue
         elif name == 'painting' and painting.Painting(folder.path).build():
             check.remove(name)

@@ -7,6 +7,7 @@ texture:
   environment: true
   gui: false
   items: false
+  underwater: true  # color fog while player is under the water, vanilla is light blue
   map: false
   armor: false
   painting: true
