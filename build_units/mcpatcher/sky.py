@@ -9,10 +9,13 @@ class Sky(BuildOptfine):
         super().__init__(texture_path)
 
     # ./input/{pack}/assets/minecraft/mcpatcher/sky
+    # ./input/{pack}/assets/minecraft/mcpatcher/colormap
     def build(self):
 
         if not cr.get('texture.sky'):
             return False
 
-        super().build()
+        name = str(self.resource_path).split('/')[-1]
+        if name == 'sky' or 'colormap':
+            super().build()
         return True

@@ -13,7 +13,8 @@ def build(path):
         name = folder.name
         if name.startswith('.'):
             continue
-        if name == 'sky' and sky.Sky(folder.path).build():
+        if ((name == 'sky' or name == 'colormap')
+                and sky.Sky(folder.path).build()):
             continue
         elif name == 'ctm' and ctm.CTM(folder.path).build():
             continue
