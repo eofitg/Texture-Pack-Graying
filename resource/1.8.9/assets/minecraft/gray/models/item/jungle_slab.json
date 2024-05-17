@@ -1,5 +1,5 @@
 {
-    "parent": "block/half_slab_jungle",
+    "parent": "block/gray/half_slab_jungle",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

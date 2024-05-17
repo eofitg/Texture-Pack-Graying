@@ -1,5 +1,5 @@
 {
-    "parent": "block/anvil_very_damaged",
+    "parent": "block/gray/anvil_very_damaged",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

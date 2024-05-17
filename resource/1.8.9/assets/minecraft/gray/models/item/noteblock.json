@@ -1,5 +1,5 @@
 {
-    "parent": "block/noteblock",
+    "parent": "block/gray/noteblock",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

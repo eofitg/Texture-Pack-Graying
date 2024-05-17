@@ -1,5 +1,5 @@
 {
-    "parent": "block/sea_lantern",
+    "parent": "block/gray/sea_lantern",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

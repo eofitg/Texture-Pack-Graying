@@ -1,5 +1,5 @@
 {
-    "parent": "block/spruce_log",
+    "parent": "block/gray/spruce_log",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

@@ -1,5 +1,5 @@
 {
-    "parent": "block/emerald_ore",
+    "parent": "block/gray/emerald_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

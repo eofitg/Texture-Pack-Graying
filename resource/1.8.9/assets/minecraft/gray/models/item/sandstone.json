@@ -1,5 +1,5 @@
 {
-    "parent": "block/sandstone_normal",
+    "parent": "block/gray/sandstone_normal",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

@@ -1,5 +1,5 @@
 {
-    "parent": "block/half_slab_red_sandstone",
+    "parent": "block/gray/half_slab_red_sandstone",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

@@ -1,5 +1,5 @@
 {
-    "parent": "block/black_wool",
+    "parent": "block/gray/black_wool",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

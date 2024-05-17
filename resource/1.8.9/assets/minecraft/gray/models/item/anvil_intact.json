@@ -1,5 +1,5 @@
 {
-    "parent": "block/anvil_undamaged",
+    "parent": "block/gray/anvil_undamaged",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

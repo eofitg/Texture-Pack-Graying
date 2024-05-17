@@ -1,5 +1,5 @@
 {
-    "parent": "block/mycelium",
+    "parent": "block/gray/mycelium",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

@@ -1,5 +1,5 @@
 {
-    "parent": "block/andesite",
+    "parent": "block/gray/andesite",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

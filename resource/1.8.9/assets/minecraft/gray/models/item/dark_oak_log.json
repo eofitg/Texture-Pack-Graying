@@ -1,5 +1,5 @@
 {
-    "parent": "block/dark_oak_log",
+    "parent": "block/gray/dark_oak_log",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

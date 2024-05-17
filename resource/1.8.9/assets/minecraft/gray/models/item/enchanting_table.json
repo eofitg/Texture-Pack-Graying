@@ -1,5 +1,5 @@
 {
-    "parent": "block/enchanting_table_base",
+    "parent": "block/gray/enchanting_table_base",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

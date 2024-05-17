@@ -1,5 +1,5 @@
 {
-    "parent": "block/glass_lime",
+    "parent": "block/gray/glass_lime",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

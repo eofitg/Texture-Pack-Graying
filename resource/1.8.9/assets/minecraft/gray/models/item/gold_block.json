@@ -1,5 +1,5 @@
 {
-    "parent": "block/gold_block",
+    "parent": "block/gray/gold_block",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

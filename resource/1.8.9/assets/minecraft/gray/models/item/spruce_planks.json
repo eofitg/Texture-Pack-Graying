@@ -1,5 +1,5 @@
 {
-    "parent": "block/spruce_planks",
+    "parent": "block/gray/spruce_planks",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

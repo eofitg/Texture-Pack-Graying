@@ -1,5 +1,5 @@
 {
-    "parent": "block/coarse_dirt",
+    "parent": "block/gray/coarse_dirt",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

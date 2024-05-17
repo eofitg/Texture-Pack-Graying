@@ -1,5 +1,5 @@
 {
-    "parent": "block/birch_log",
+    "parent": "block/gray/birch_log",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

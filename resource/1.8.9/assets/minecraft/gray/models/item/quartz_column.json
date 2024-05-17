@@ -1,5 +1,5 @@
 {
-    "parent": "block/quartz_lines",
+    "parent": "block/gray/quartz_lines",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

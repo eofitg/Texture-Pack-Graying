@@ -1,5 +1,5 @@
 {
-    "parent": "block/dragon_egg",
+    "parent": "block/gray/dragon_egg",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

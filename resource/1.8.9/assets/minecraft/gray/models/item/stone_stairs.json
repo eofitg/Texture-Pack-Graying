@@ -1,5 +1,5 @@
 {
-    "parent": "block/stone_stairs",
+    "parent": "block/gray/stone_stairs",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

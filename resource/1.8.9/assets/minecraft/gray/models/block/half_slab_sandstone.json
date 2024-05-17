@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "blocks/gray/sandstone_bottom",
+        "top": "blocks/gray/sandstone_top",
+        "side": "blocks/gray/sandstone_normal"
+    }
+}

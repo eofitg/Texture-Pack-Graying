@@ -1,5 +1,5 @@
 {
-    "parent": "block/soul_sand",
+    "parent": "block/gray/soul_sand",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

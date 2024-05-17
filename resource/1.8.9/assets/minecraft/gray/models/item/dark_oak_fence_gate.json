@@ -1,5 +1,5 @@
 {
-    "parent": "block/dark_oak_fence_gate_closed",
+    "parent": "block/gray/dark_oak_fence_gate_closed",
     "display": {
         "thirdperson": {
             "rotation": [ 0, -90, 170 ],

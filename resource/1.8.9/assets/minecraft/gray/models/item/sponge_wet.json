@@ -1,5 +1,5 @@
 {
-    "parent": "block/sponge_wet",
+    "parent": "block/gray/sponge_wet",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

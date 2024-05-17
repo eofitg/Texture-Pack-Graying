@@ -1,5 +1,5 @@
 {
-    "parent": "block/wooden_trapdoor_bottom",
+    "parent": "block/gray/wooden_trapdoor_bottom",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

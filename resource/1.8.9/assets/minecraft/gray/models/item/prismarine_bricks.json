@@ -1,5 +1,5 @@
 {
-    "parent": "block/prismarine_bricks",
+    "parent": "block/gray/prismarine_bricks",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

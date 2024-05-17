@@ -1,5 +1,5 @@
 {
-    "parent": "block/end_stone",
+    "parent": "block/gray/end_stone",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

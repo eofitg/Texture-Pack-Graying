@@ -1,5 +1,5 @@
 {
-    "parent": "block/pink_wool",
+    "parent": "block/gray/pink_wool",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

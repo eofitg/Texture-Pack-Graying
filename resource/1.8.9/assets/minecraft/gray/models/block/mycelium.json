@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "blocks/gray/dirt",
+        "top": "blocks/gray/mycelium_top",
+        "side": "blocks/gray/mycelium_side"
+    }
+}

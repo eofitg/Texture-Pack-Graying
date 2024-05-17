@@ -21,7 +21,7 @@ whitelist:
     carpet: false
     ladder: false
     wood: false
-    wool: false
+    wool: true
     bed: false
     tnt: false
     glass: false

@@ -1,5 +1,5 @@
 {
-    "parent": "block/oak_fence_inventory",
+    "parent": "block/gray/oak_fence_inventory",
     "display": {
         "thirdperson": {
             "rotation": [ 0, 0, 180 ],

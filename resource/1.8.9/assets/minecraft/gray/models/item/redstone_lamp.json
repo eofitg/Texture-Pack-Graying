@@ -1,5 +1,5 @@
 {
-    "parent": "block/unlit_redstone_lamp",
+    "parent": "block/gray/unlit_redstone_lamp",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

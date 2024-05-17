@@ -1,5 +1,5 @@
 {
-    "parent": "block/podzol",
+    "parent": "block/gray/podzol",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

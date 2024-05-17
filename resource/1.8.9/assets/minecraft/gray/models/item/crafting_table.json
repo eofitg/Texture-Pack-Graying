@@ -1,5 +1,5 @@
 {
-    "parent": "block/crafting_table",
+    "parent": "block/gray/crafting_table",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

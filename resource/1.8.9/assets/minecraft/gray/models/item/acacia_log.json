@@ -1,5 +1,5 @@
 {
-    "parent": "block/acacia_log",
+    "parent": "block/gray/acacia_log",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

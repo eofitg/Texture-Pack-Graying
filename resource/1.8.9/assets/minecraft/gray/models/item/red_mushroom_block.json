@@ -1,5 +1,5 @@
 {
-    "parent": "block/red_mushroom_block_cap_all",
+    "parent": "block/gray/red_mushroom_block_cap_all",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

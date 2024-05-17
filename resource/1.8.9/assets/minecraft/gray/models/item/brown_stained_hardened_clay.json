@@ -1,5 +1,5 @@
 {
-    "parent": "block/hardened_clay_brown",
+    "parent": "block/gray/hardened_clay_brown",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

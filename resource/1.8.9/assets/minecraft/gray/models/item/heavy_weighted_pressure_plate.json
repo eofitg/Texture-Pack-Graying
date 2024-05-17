@@ -1,5 +1,5 @@
 {
-    "parent": "block/heavy_pressure_plate_inventory",
+    "parent": "block/gray/heavy_pressure_plate_inventory",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

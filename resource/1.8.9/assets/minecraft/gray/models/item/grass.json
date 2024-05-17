@@ -1,5 +1,5 @@
 {
-    "parent": "block/grass_normal",
+    "parent": "block/gray/grass_normal",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

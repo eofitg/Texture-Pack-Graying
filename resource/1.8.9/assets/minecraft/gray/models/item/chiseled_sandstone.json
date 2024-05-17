@@ -1,5 +1,5 @@
 {
-    "parent": "block/sandstone_chiseled",
+    "parent": "block/gray/sandstone_chiseled",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

@@ -1,5 +1,5 @@
 {
-    "parent": "block/command_block",
+    "parent": "block/gray/command_block",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

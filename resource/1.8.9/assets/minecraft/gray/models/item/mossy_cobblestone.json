@@ -1,5 +1,5 @@
 {
-    "parent": "block/mossy_cobblestone",
+    "parent": "block/gray/mossy_cobblestone",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

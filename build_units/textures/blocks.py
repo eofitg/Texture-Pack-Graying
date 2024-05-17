@@ -44,7 +44,7 @@ class Blocks(BuildTexture):
                 # change carpets' json files to custom location
                 json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
                 # ./output/{pack}/assets/minecraft/models/block
-                json_dst = self.resource_path[:-15] + 'models/block'
+                json_dst = self.resource_path[:-len('textures/blocks')] + 'models/block'
                 ot.copytree(json_src, json_dst)
 
                 for item in os.scandir(png_src):
@@ -61,7 +61,7 @@ class Blocks(BuildTexture):
                 # change carpets' json files to custom location
                 json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
                 # ./output/{pack}/assets/minecraft/models/block
-                json_dst = output_path[:-15] + 'models/block'
+                json_dst = output_path[:-len('textures/blocks')] + 'models/block'
                 # print(json_dst)
                 ot.copytree(json_src, json_dst)
 

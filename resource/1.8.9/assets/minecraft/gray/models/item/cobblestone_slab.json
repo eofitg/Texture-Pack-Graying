@@ -1,5 +1,5 @@
 {
-    "parent": "block/half_slab_cobblestone",
+    "parent": "block/gray/half_slab_cobblestone",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

@@ -1,5 +1,5 @@
 {
-    "parent": "block/obsidian",
+    "parent": "block/gray/obsidian",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

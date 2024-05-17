@@ -1,5 +1,5 @@
 {
-    "parent": "block/dirt",
+    "parent": "block/gray/dirt",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

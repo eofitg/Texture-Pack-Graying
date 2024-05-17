@@ -1,5 +1,5 @@
 {
-    "parent": "block/coal_ore",
+    "parent": "block/gray/coal_ore",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

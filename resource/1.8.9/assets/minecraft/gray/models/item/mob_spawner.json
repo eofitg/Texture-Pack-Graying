@@ -1,5 +1,5 @@
 {
-    "parent": "block/mob_spawner_cage",
+    "parent": "block/gray/mob_spawner_cage",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

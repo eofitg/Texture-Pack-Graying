@@ -1,5 +1,5 @@
 {
-    "parent": "block/iron_block",
+    "parent": "block/gray/iron_block",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

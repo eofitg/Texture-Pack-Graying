@@ -1,5 +1,5 @@
 {
-    "parent": "block/bedrock",
+    "parent": "block/gray/bedrock",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

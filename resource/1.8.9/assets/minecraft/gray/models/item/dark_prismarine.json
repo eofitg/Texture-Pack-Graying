@@ -1,5 +1,5 @@
 {
-    "parent": "block/prismarine_dark",
+    "parent": "block/gray/prismarine_dark",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

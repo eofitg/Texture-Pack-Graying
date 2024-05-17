@@ -1,5 +1,5 @@
 {
-    "parent": "block/cobblestone_wall_inventory",
+    "parent": "block/gray/cobblestone_wall_inventory",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

@@ -1,5 +1,5 @@
 {
-    "parent": "block/piston_inventory_normal",
+    "parent": "block/gray/piston_inventory_normal",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
