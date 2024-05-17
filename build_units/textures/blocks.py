@@ -1,6 +1,7 @@
 import os
 
 from build_units.build_texture import BuildTexture
+
 import utils.grayscaling as gs
 import utils.operating_tools as ot
 import config_reader as cr
@@ -35,7 +36,7 @@ class Blocks(BuildTexture):
             pass
         else:
             if cr.get('whitelist.blocks.carpet'):  # change wool but not carpet
-                # change json of carpet to custom location of its texture, not locate original wool anymore
+                # make carpet-json locate to modified carpet-texture path, not original wool anymore
                 json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
                 # ./output/{pack}/assets/minecraft/models/block
                 json_dst = output_path[:-len('textures/blocks')] + 'models/block'
@@ -43,7 +44,7 @@ class Blocks(BuildTexture):
                 ot.copytree(json_src, json_dst)
 
                 png_src = './resource/1.8.9/assets/minecraft/textures/blocks/'
-                png_dst = output_path + '/gray/'
+                png_dst = output_path + '/gray/carpet/'
                 # if this pack modified wool in its texture
                 if 'wool_colored_white.png' in texture_list:
                     png_src = self.resource_path
@@ -53,7 +54,7 @@ class Blocks(BuildTexture):
                         ot.copy(item.path, png_dst)
 
             else:  # change carpet but not wool
-                # change json of carpet to custom location of its texture, not locate original wool anymore
+                # make carpet-json locate to modified carpet-texture path, not original wool anymore
                 json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
                 # ./output/{pack}/assets/minecraft/models/block
                 json_dst = output_path[:-len('textures/blocks')] + 'models/block'
@@ -61,7 +62,7 @@ class Blocks(BuildTexture):
                 ot.copytree(json_src, json_dst)
 
                 png_src = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
-                png_dst = output_path + '/gray/'
+                png_dst = output_path + '/gray/carpet/'
                 # if this pack modified wool in its texture
                 if 'wool_colored_white.png' in texture_list:
                     png_src = self.resource_path
@@ -81,7 +82,7 @@ class Blocks(BuildTexture):
 
         checklist = super().build()
         dynamic_blocks = ['fire_layer_0.png', 'fire_layer_1.png', 'lava_flow.png', 'lava_still.png', 'portal.png',
-                          'prismarine_rough.png', 'sea_lantern.png', 'water_flow.png', 'water_still.png', ]
+                          'prismarine_rough.png', 'sea_lantern.png', 'water_flow.png', 'water_still.png']
         # files this pack didn't modify but need to grayscale
         for item in checklist:
             ot.copy(self.vanilla_path + item, output_path)

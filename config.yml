@@ -2,7 +2,7 @@ texture:
   blocks: true
   # The color of the grass/leaves depends on the colormap,
   # but still, some of their textures can never be changed.
-  colormap: true
+  colormap: false
   entity: true
   environment: true
   gui: false
