@@ -18,10 +18,10 @@ texture:
 
 whitelist:
   blocks:
-    carpet: false
+    carpet: true
     ladder: false
     wood: false
-    wool: true
+    wool: false
     bed: false
     tnt: false
     glass: false

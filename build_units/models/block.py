@@ -9,4 +9,5 @@ class Block(BuildModel):
 
     # ./input/{pack}/assets/minecraft/models/block
     def build(self):
-        return super().build()
+        super().build()
+        return True

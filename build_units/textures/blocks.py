@@ -34,37 +34,39 @@ class Blocks(BuildTexture):
             # carpet can be same as wool, don't need to modify
             pass
         else:
-            # change wool but not carpet
-            if cr.get('whitelist.blocks.carpet'):
-                png_src = './resource/1.8.9/assets/minecraft/textures/blocks/'
-                png_dst = output_path + '/gray/'
-                if 'wool_colored_white.png' in texture_list:  # use original texture or this pack's
-                    png_src = self.resource_path
-
-                # change carpets' json files to custom location
-                json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
-                # ./output/{pack}/assets/minecraft/models/block
-                json_dst = self.resource_path[:-len('textures/blocks')] + 'models/block'
-                ot.copytree(json_src, json_dst)
-
-                for item in os.scandir(png_src):
-                    if item.is_file() and item.name.startswith('wool'):
-                        ot.copy(item.path, png_dst)
-
-            # change carpet but not wool
-            else:
-                png_src = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
-                png_dst = output_path + '/gray/'
-                if 'wool_colored_white.png' in texture_list:
-                    png_src = self.resource_path
-
-                # change carpets' json files to custom location
+            if cr.get('whitelist.blocks.carpet'):  # change wool but not carpet
+                # change json of carpet to custom location of its texture, not locate original wool anymore
                 json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
                 # ./output/{pack}/assets/minecraft/models/block
                 json_dst = output_path[:-len('textures/blocks')] + 'models/block'
                 # print(json_dst)
                 ot.copytree(json_src, json_dst)
 
+                png_src = './resource/1.8.9/assets/minecraft/textures/blocks/'
+                png_dst = output_path + '/gray/'
+                # if this pack modified wool in its texture
+                if 'wool_colored_white.png' in texture_list:
+                    png_src = self.resource_path
+
+                for item in os.scandir(png_src):
+                    if item.is_file() and item.name.startswith('wool') and item.name.endswith('.png'):
+                        ot.copy(item.path, png_dst)
+
+            else:  # change carpet but not wool
+                # change json of carpet to custom location of its texture, not locate original wool anymore
+                json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
+                # ./output/{pack}/assets/minecraft/models/block
+                json_dst = output_path[:-len('textures/blocks')] + 'models/block'
+                # print(json_dst)
+                ot.copytree(json_src, json_dst)
+
+                png_src = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
+                png_dst = output_path + '/gray/'
+                # if this pack modified wool in its texture
+                if 'wool_colored_white.png' in texture_list:
+                    png_src = self.resource_path
+
+                # build gray wool texture for json of carpet
                 for item in os.scandir(png_src):
                     if item.is_file() and item.name.startswith('wool') and item.name.endswith('.png'):
                         if 'wool_colored_white.png' not in texture_list:
