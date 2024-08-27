@@ -2,7 +2,7 @@ texture:
   blocks: true
   # The color of the grass/leaves depends on the colormap,
   # but still, some of their textures can never be changed.
-  colormap: false
+  colormap: true
   entity: true
   environment: true
   gui: false
@@ -18,19 +18,19 @@ texture:
 
 whitelist:
   blocks:
-    carpet: true
+    carpet: false
     ladder: false
     wood: false
-    wool: false
-    bed: false
-    tnt: false
+    wool: true
+    bed: true
+    tnt: true
     glass: false
     stained_glass: false
     portal: false
     hardened_clay: false
     stained_hardened_clay: false
     water:
-      flow: false
+      flow: true
       still: true
     lava:
       flow: false
@@ -41,7 +41,7 @@ whitelist:
     living: true
     armorstand: false
     arrow: true
-    chest: false
+    chest: true
     banner_base: false
     boat: false
     enchanting_table_book: false
