@@ -31,6 +31,7 @@ def copy_anyway(src, dst):
 
 
 # Add this file/folder from 'input' to 'output' anyway
+# means copy directly, without any manipulation
 def build_anyway(src):
     copy_anyway(src, get_output_path(src))
 

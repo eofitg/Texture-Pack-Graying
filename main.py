@@ -61,7 +61,7 @@ def build():
                 model.build(folder.path)
                 continue
 
-            # folders never need to build
+            # folders that never need to be greyed
             ot.build_anyway(folder.path)
 
 
