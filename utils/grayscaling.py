@@ -3,6 +3,7 @@ from PIL import Image
 
 import utils.operating_tools as ot
 
+
 input_path = './input/'
 output_path = './output/'
 

@@ -65,5 +65,6 @@ def build():
             ot.build_anyway(folder.path)
 
 
-build()
-print("Done.")
+if __name__ == '__main__':
+    build()
+    print("Done.")
