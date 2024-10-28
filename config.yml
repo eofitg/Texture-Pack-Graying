@@ -12,7 +12,7 @@ texture:
   armor: false
   painting: true
   particle: false
-  optfine:
+  optifine:
     sky: true
     anim: true
 

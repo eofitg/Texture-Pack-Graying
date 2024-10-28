@@ -1,9 +1,9 @@
-from build_units.build_optfine import BuildOptfine
+from build_units.build_optifine import BuildOptiFine
 
 import config_reader as cr
 
 
-class CTM(BuildOptfine):
+class CTM(BuildOptiFine):
 
     def __init__(self, texture_path):
         super().__init__(texture_path)

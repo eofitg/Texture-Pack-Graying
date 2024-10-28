@@ -1,9 +1,9 @@
-from build_units.build_optfine import BuildOptfine
+from build_units.build_optifine import BuildOptiFine
 
 import config_reader as cr
 
 
-class Anim(BuildOptfine):
+class Anim(BuildOptiFine):
 
     def __init__(self, texture_path):
         super().__init__(texture_path)
@@ -11,7 +11,7 @@ class Anim(BuildOptfine):
     # ./input/{pack}/assets/minecraft/mcpatcher/anim
     def build(self):
 
-        if not cr.get('texture.optfine.anim'):
+        if not cr.get('texture.optifine.anim'):
             return False
 
         super().build()

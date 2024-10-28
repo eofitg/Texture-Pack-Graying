@@ -5,7 +5,7 @@ import utils.decompress as dec
 import utils.operating_tools as ot
 from utils import clean
 from build_units import texture
-from build_units import optfine
+from build_units import optifine
 from build_units import model
 
 
@@ -54,8 +54,8 @@ def build():
             if name == 'textures':
                 texture.build(folder.path)
                 continue
-            elif name == 'mcpatcher':  # optfine folder, like sky and ctm textures
-                optfine.build(folder.path)
+            elif name == 'mcpatcher':  # OptiFine folder, like sky and ctm textures
+                optifine.build(folder.path)
                 continue
             elif name == 'models':
                 model.build(folder.path)

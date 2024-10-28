@@ -6,15 +6,15 @@ import utils.grayscaling as gs
 import utils.operating_tools as ot
 
 
-# abstract build unit for opfine files
-class BuildOptfine(Build):
+# abstract build unit for OptiFine files
+class BuildOptiFine(Build):
 
     def __init__(self, resource_path):
         self.whitelist = []
         super().__init__(resource_path)
 
     # ./input/{pack}/assets/minecraft/mcpatcher/
-    # For optfine, only need to consider textures this pack modified
+    # For OptiFine, only need to consider textures this pack modified
     # if not, don't need to do anything annoying (like copy grayed vanilla textures into output)
     def build(self):
 
