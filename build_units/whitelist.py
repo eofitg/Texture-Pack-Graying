@@ -11,6 +11,11 @@ def exist(item):
     # ladder
     if item.startswith('ladder') and cr.get(bl + 'ladder'):
         return True
+    # wood
+    if item.startswith('log') and cr.get(bl + 'wood'):
+        return True
+    if item.startswith('planks') and cr.get(bl + 'wood'):
+        return True
     # wool
     if item.startswith('wool') and cr.get(bl + 'wool'):
         return True

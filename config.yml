@@ -20,7 +20,7 @@ whitelist:
   blocks:
     carpet: false
     ladder: false
-    wood: false
+    wood: true
     wool: true
     bed: true
     tnt: true
