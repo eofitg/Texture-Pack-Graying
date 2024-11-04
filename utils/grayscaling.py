@@ -1,5 +1,5 @@
 import os
-from PIL import Image
+from PIL import Image, ImageEnhance
 
 import utils.operating_tools as ot
 
@@ -11,8 +11,15 @@ output_path = './output/'
 def build(src):
     img = Image.open(src).convert('RGBA')
     r, g, b, a = img.split()
+
+    # GRATING
     grey_img = Image.merge('RGB', (r, g, b)).convert('L')
-    result_img = Image.merge('LA', (grey_img, a))
+
+    # LIGHTING
+    enhancer = ImageEnhance.Brightness(grey_img)
+    dark_img = enhancer.enhance(0.25)
+
+    result_img = Image.merge('LA', (dark_img, a))
     return result_img
 
 
