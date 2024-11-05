@@ -68,19 +68,21 @@ if __name__ == '__main__':
             if building_message:
                 print("Building nested dir \"" + pack_path + "\" ......")
 
+        # build files in ./input/{pack}/, like pack.png and pack.mcmeta
         for file in os.scandir(pack_path):
-            if file.is_file() and not file.name.startswith('.'):
-                ot.copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
+            if not file.is_file():
+                continue
+            ot.copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
 
-        path = pack_path + '/assets/minecraft/'
+        # try to get assets dir
+        path = os.path.join(pack_path, '/assets/minecraft/')
         if not os.path.exists(path):
             error_message = 'Incorrect pack folder at \"' + path + '\".'
             print(error_message)
+
         # ./input/{pack}/assets/minecraft/
         for folder in os.scandir(path):
             name = folder.name
-            if name.startswith('.'):
-                continue
             if name == 'textures':
                 texture.build(folder.path)
                 continue
