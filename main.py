@@ -2,6 +2,8 @@ import os
 
 import utils.zip_tools as zt
 import utils.operating_tools as ot
+import utils.grayscaling as gs
+import config_reader as cr
 from utils import clean
 from build_units import texture
 from build_units import optifine
@@ -9,6 +11,8 @@ from build_units import model
 
 
 building_message = True
+
+build_cover_image = cr.get('build_cover_image')  # boolean
 
 
 # if or not this path only has one dir
@@ -70,6 +74,10 @@ if __name__ == '__main__':
         for file in os.scandir(pack_path):
             if not file.is_file():
                 continue
+            if file.name == 'pack.png' and build_cover_image:
+                gs.build_file(file.path)
+                continue
+
             ot.build_anyway(file.path)
 
         # try to get assets dir

@@ -1,5 +1,7 @@
 # 0 ~ 1, 0 = black, 1 = gray
 brightness: 0.25
+# Grayscale the cover image(pack.png) or not
+build_cover_image: True
 
 texture:
   blocks: true
