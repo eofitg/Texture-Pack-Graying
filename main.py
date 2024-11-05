@@ -66,5 +66,12 @@ def build():
 
 
 if __name__ == '__main__':
+
+    # clear output folder
+    ot.clear()
+    if building_message:
+        print("Cleared output folder.")
+
     build()
+
     print("Done.")
