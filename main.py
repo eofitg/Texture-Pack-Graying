@@ -74,7 +74,7 @@ if __name__ == '__main__':
         for file in os.scandir(pack_path):
             if not file.is_file():
                 continue
-            ot.copy_file(file.path, output_path + file.path[len(input_path):-len(file.name)])
+            ot.build_anyway(file.path)
 
         # try to get assets dir
         path = os.path.join(pack_path, 'assets/minecraft/')
