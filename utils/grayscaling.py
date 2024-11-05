@@ -17,10 +17,10 @@ def build(src):
     r, g, b, a = img.split()
 
     # GRATING
-    grey_img = Image.merge('RGB', (r, g, b)).convert('L')
+    gray_img = Image.merge('RGB', (r, g, b)).convert('L')
 
     # LIGHTING
-    enhancer = ImageEnhance.Brightness(grey_img)
+    enhancer = ImageEnhance.Brightness(gray_img)
     dark_img = enhancer.enhance(brightness)
 
     result_img = Image.merge('LA', (dark_img, a))
