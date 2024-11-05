@@ -16,6 +16,11 @@ def clear():
         os.makedirs(output_path)
 
 
+def del_dir(dst):
+    if os.path.exists(dst):
+        shutil.rmtree(dst)
+
+
 # dst: parent folder path
 def copy_file(src, dst):
     if not os.path.exists(dst):
@@ -35,26 +40,13 @@ def copy(src, dst):
     if os.path.isdir(src):  # dir
         copy_dir(src, dst)
     elif os.path.isfile(src):  # file
-        copy_file(src, get_parent(dst))
-
-
-# Get parent folder
-def get_parent(path: str):
-    if path.endswith(os.sep):
-        path = path[:-1]
-
-    return os.path.dirname(path)
+        copy_file(src, get_pare_path(dst))
 
 
 # Add this file / dir from 'input' to 'output' anyway
 # means copy directly, without any manipulation
 def build_anyway(src):
     copy(src, get_output_path(src))
-
-
-def del_dir(dst):
-    if os.path.exists(dst):
-        shutil.rmtree(dst)
 
 
 # Get pack list
@@ -79,6 +71,14 @@ def get_packs():
 # Get pack path by pack name
 def get_pack_path(pack):
     return os.path.join(input_path, pack)
+
+
+# Get parent path
+def get_pare_path(path: str):
+    if path.endswith(os.sep):
+        path = path[:-1]
+
+    return os.path.dirname(path)
 
 
 # Get relative path from start in path
