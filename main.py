@@ -11,10 +11,6 @@ from build_units import model
 building_message = True
 
 
-input_path = './input/'
-output_path = './output/'
-
-
 # if or not this path only has one dir
 # True -> return the path of this dir
 # False -> return ""
