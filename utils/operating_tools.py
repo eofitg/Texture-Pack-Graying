@@ -1,5 +1,6 @@
 import os
 import shutil
+import utils.zip_tools as zt
 
 
 input_path = './input/'
@@ -48,6 +49,19 @@ def del_dir(dst):
 # means copy directly, without any manipulation
 def build_anyway(src):
     copy_anyway(src, get_output_path(src))
+
+
+# Get pack list
+def get_packs():
+    dirs = []
+    for item in os.scandir(input_path):
+        if item.is_dir():
+            dirs.append(item.path[len(input_path):])
+        elif item.is_file() and item.name.endswith('.zip'):
+            # decompress .zip files
+            zt.decompress(item.path)
+            dirs.append(item.path[len(input_path):-4])
+    return list(set(dirs))
 
 
 # Turn input_path into output_path (No '/' at the end of path)

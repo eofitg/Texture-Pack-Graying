@@ -1,7 +1,5 @@
 import os
 
-import config_reader as cr
-import utils.zip_tools as zt
 import utils.operating_tools as ot
 from utils import clean
 from build_units import texture
@@ -16,18 +14,6 @@ input_path = './input/'
 output_path = './output/'
 
 
-def get_packs():
-    dirs = []
-    for item in os.scandir(input_path):
-        if item.is_dir():
-            dirs.append(item.path[len(input_path):])
-        elif item.is_file() and item.name.endswith('.zip'):
-            # decompress .zip files
-            zt.decompress(item.path)
-            dirs.append(item.path[len(input_path):-4])
-    return list(set(dirs))
-
-
 if __name__ == '__main__':
 
     # clear output folder
@@ -35,7 +21,7 @@ if __name__ == '__main__':
     if building_message:
         print("Cleared output folder.")
 
-    packs = get_packs()
+    packs = ot.get_packs()
 
     for pack in packs:
 
