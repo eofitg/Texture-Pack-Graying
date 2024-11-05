@@ -32,14 +32,18 @@ def copy_dir(src, dst):
 
 # Copy this file / dir to dst path
 def copy(src, dst):
-    s = str(src)
-    if s.endswith('/'):
-        s = src[:-1]
-    name = s.split('/')[-1]
-    if name.find('.') < 0:  # dir
+    if os.path.isdir(src):  # dir
         copy_dir(src, dst)
-    else:  # file
-        copy_file(src, dst[:-len(name)])
+    elif os.path.isfile(src):  # file
+        copy_file(src, get_parent(dst))
+
+
+# Get parent folder
+def get_parent(path: str):
+    if path.endswith(os.sep):
+        path = path[:-1]
+
+    return os.path.dirname(path)
 
 
 # Add this file / dir from 'input' to 'output' anyway
@@ -56,13 +60,19 @@ def del_dir(dst):
 # Get pack list
 def get_packs():
     dirs = []
+
     for item in os.scandir(input_path):
+
+        raw_name, ext = os.path.splitext(item.name)
+
         if item.is_dir():
-            dirs.append(item.path[len(input_path):])
-        elif item.is_file() and item.name.endswith('.zip'):
+            dirs.append(get_rela_path(item.path, input_path))
+
+        elif item.is_file() and ext == '.zip':
             # decompress .zip files
             zt.decompress(item.path)
-            dirs.append(item.path[len(input_path):-4])
+            dirs.append(raw_name)
+
     return list(set(dirs))
 
 
