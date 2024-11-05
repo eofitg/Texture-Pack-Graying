@@ -75,7 +75,7 @@ if __name__ == '__main__':
             ot.copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
 
         # try to get assets dir
-        path = os.path.join(pack_path, '/assets/minecraft/')
+        path = os.path.join(pack_path, 'assets/minecraft/')
         if not os.path.exists(path):
             error_message = 'Incorrect pack folder at \"' + path + '\".'
             print(error_message)
