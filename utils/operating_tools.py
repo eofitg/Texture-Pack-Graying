@@ -40,13 +40,31 @@ def copy(src, dst):
     if os.path.isdir(src):  # dir
         copy_dir(src, dst)
     elif os.path.isfile(src):  # file
-        copy_file(src, get_pare_path(dst))
+        copy_file(src, get_parent_path(dst))
 
 
 # Add this file / dir from 'input' to 'output' anyway
 # means copy directly, without any manipulation
 def build_anyway(src):
     copy(src, get_output_path(src))
+
+
+# Turn input_path into output_path (No '/' at the end of path)
+def get_output_path(path):
+    return os.path.join(output_path, get_relative_path(path, input_path))
+
+
+# Get relative path from start in path
+def get_relative_path(path, start):
+    return os.path.relpath(path, start=start)
+
+
+# Get parent path
+def get_parent_path(path: str):
+    if path.endswith(os.sep):
+        path = path[:-1]
+
+    return os.path.dirname(path)
 
 
 # Get pack list
@@ -58,7 +76,7 @@ def get_packs():
         raw_name, ext = os.path.splitext(item.name)
 
         if item.is_dir():
-            dirs.append(get_rela_path(item.path, input_path))
+            dirs.append(get_relative_path(item.path, input_path))
 
         elif item.is_file() and ext == '.zip':
             # decompress .zip files
@@ -72,20 +90,3 @@ def get_packs():
 def get_pack_path(pack):
     return os.path.join(input_path, pack)
 
-
-# Get parent path
-def get_pare_path(path: str):
-    if path.endswith(os.sep):
-        path = path[:-1]
-
-    return os.path.dirname(path)
-
-
-# Get relative path from start in path
-def get_rela_path(path, start):
-    return os.path.relpath(path, start=start)
-
-
-# Turn input_path into output_path (No '/' at the end of path)
-def get_output_path(path):
-    return os.path.join(output_path, get_rela_path(path, input_path))
