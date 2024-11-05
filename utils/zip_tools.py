@@ -19,5 +19,5 @@ def compress(path):
         for root, dirs, files in os.walk(path):
             for file in files:
                 file_path = os.path.join(root, file)
-                arcname = os.path.relpath(file_path, start=path)
-                zipf.write(file_path, arcname)
+                new_name = os.path.relpath(file_path, start=path)
+                zipf.write(file_path, new_name)
