@@ -64,6 +64,11 @@ def get_packs():
     return list(set(dirs))
 
 
+# Get pack path by pack name
+def get_pack_path(pack):
+    return os.path.join(input_path, pack)
+
+
 # Turn input_path into output_path (No '/' at the end of path)
 def get_output_path(path):
     return output_path + path[len(input_path):]

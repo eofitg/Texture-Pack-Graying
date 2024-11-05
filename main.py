@@ -22,19 +22,18 @@ if __name__ == '__main__':
         print("Cleared output folder.")
 
     packs = ot.get_packs()
-
     for pack in packs:
 
-        path = input_path + pack
         # ./input/{pack}/
+        pack_path = ot.get_pack_path(pack)
         if building_message:
-            print('Building ' + path + ' ......')
+            print('Building ' + pack_path + ' ......')
 
-        for file in os.scandir(path):
+        for file in os.scandir(pack_path):
             if file.is_file() and not file.name.startswith('.'):
                 ot.copy(file.path, output_path + file.path[len(input_path):-len(file.name)])
 
-        path = path + '/assets/minecraft/'
+        path = pack_path + '/assets/minecraft/'
         if not os.path.exists(path):
             error_message = 'Incorrect pack folder at \"' + path + '\".'
             print(error_message)
