@@ -29,7 +29,7 @@ class BuildTexture(Build):
         for item in os.scandir(self.resource_path):
             if item.name in check_list:
                 if item.is_file() and item.name.endswith('.png'):
-                    gs.build_file(item.path, item.name)
+                    gs.build_file(item.path)
                     check_list.remove(item.name)
                     continue
                 elif item.is_dir():

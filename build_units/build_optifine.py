@@ -23,7 +23,7 @@ class BuildOptiFine(Build):
                 continue
             if item.name not in self.whitelist:
                 if item.is_file() and item.name.endswith('.png'):
-                    gs.build_file(item.path, item.name)
+                    gs.build_file(item.path)
                     continue
                 elif item.is_dir():
                     gs.build_dir(item.path)

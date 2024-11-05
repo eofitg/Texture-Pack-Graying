@@ -5,10 +5,6 @@ import config_reader as cr
 import utils.operating_tools as ot
 
 
-input_path = './input/'
-output_path = './output/'
-
-
 def build(src):
     # float number
     brightness = cr.get('brightness')
@@ -27,27 +23,30 @@ def build(src):
     return result_img
 
 
-def save(img, src, name):
-    # "name" includes file extension
-    path = output_path + src[len(input_path):-len(name)]
-    if not os.path.exists(path):
-        os.makedirs(path)
-    img.save(output_path + src[len(input_path):])
+def save(img, src):
+    dst = ot.get_output_path(src)
+    parent = ot.get_parent_path(dst)
+
+    if not os.path.exists(parent):
+        os.makedirs(parent)
+    img.save(dst)
 
 
 def build_dir(src):
     for item in os.scandir(src):
+
         if item.is_dir():
             build_dir(item)
+
         elif item.is_file() and item.path.endswith('.png'):
             result_img = build(item.path)
-            save(result_img, item.path, item.name)
+            save(result_img, item.path)
+
         else:
             ot.build_anyway(item.path)
 
 
-def build_file(src, name):
-    # "name" includes file extension
+def build_file(src):
     result_img = build(src)
-    save(result_img, src, name)
+    save(result_img, src)
 

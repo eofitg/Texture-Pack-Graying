@@ -66,6 +66,6 @@ def build(path):
     for texture in textures:
         if cr.get('texture.' + texture) and texture in check:
             vanilla = './resource/1.8.9/assets/minecraft/gray/textures/'
-            src = vanilla + texture
-            dst = ot.get_output_path(path + '/' + texture)
+            src = os.path.join(vanilla, texture)
+            dst = ot.get_output_path(os.path.join(path, texture))
             ot.copy_dir(src, dst)
