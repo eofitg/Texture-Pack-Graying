@@ -3,8 +3,8 @@ brightness: 0.25
 
 texture:
   blocks: true
-  # The color of the grass/leaves depends on the colormap,
-  # but still, some of their textures can never be changed.
+  # The color of the grass / leaves depends on the colormap
+  # but still, some of their textures can never be changed by texture pack
   colormap: true
   entity: true
   environment: true
