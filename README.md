@@ -22,8 +22,11 @@ A grayscaling tool for Minecraft 1.8.9 texture packs.
 ### Usage
 * Put your texture packs in `./input/` folder, can be folders or `.zip` files
 * Run `./main.py` 
-* Check `./output/` folder
-
+* Check `./output/` folder after seeing
+  ```
+  ...
+  Done.
+  ```
 Modify `config.yml` to discover your own unique visual effect.
 
 ### Known Bugs
