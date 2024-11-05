@@ -1,5 +1,6 @@
 import os
 
+import utils.zip_tools as zt
 import utils.operating_tools as ot
 from utils import clean
 from build_units import texture
@@ -57,6 +58,7 @@ if __name__ == '__main__':
 
         # ./input/{pack}/
         pack_path = ot.get_pack_path(pack)
+        pack_path_backup = pack_path
         if building_message:
             print('Building ' + pack_path + ' ......')
 
@@ -95,5 +97,16 @@ if __name__ == '__main__':
 
             # folders that never need to be greyed
             ot.build_anyway(folder.path)
+
+        # Compress output
+        zt.compress(ot.get_output_path(pack_path))
+        if building_message:
+            print("Compressed output files.")
+
+        # Delete previously decompressed dirs in the "input" folder
+        ot.del_dir(ot.get_output_path(pack_path))
+        ot.del_dir(pack_path_backup)
+        if building_message:
+            print("Cleared extra files.")
 
     print("Done.")
