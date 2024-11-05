@@ -49,7 +49,7 @@ def nest_check(_path):
 if __name__ == '__main__':
 
     # clear output folder
-    ot.clear()
+    ot.clear_output()
     if building_message:
         print("Cleared output folder.")
 
@@ -104,8 +104,8 @@ if __name__ == '__main__':
             print("Compressed output files.")
 
         # Delete previously decompressed dirs in the "input" folder
-        ot.del_dir(ot.get_output_path(pack_path))
-        ot.del_dir(pack_path_backup)
+        ot.delete_dir(ot.get_output_path(pack_path))
+        ot.delete_dir(pack_path_backup)
         if building_message:
             print("Cleared extra files.")
 
