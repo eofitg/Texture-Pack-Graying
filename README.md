@@ -38,4 +38,4 @@ Modify `config.yml` to discover your own unique visual effect.
 
 **NOTE:**
 
-Sometimes, going check sources yourself may be better than asking for help.
+Sometimes, it may be better to go check sources on your own than to ask for help.
