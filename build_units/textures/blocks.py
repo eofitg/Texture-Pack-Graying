@@ -41,7 +41,7 @@ class Blocks(BuildTexture):
                 # ./output/{pack}/assets/minecraft/models/block
                 json_dst = output_path[:-len('textures/blocks')] + 'models/block'
                 # print(json_dst)
-                ot.copytree(json_src, json_dst)
+                ot.copy_dir(json_src, json_dst)
 
                 png_src = './resource/1.8.9/assets/minecraft/textures/blocks/'
                 png_dst = output_path + '/gray/carpet/'
@@ -51,7 +51,7 @@ class Blocks(BuildTexture):
 
                 for item in os.scandir(png_src):
                     if item.is_file() and item.name.startswith('wool') and item.name.endswith('.png'):
-                        ot.copy(item.path, png_dst)
+                        ot.copy_file(item.path, png_dst)
 
             else:  # change carpet but not wool
                 # make carpet-json locate to modified carpet-texture path, not original wool anymore
@@ -59,7 +59,7 @@ class Blocks(BuildTexture):
                 # ./output/{pack}/assets/minecraft/models/block
                 json_dst = output_path[:-len('textures/blocks')] + 'models/block'
                 # print(json_dst)
-                ot.copytree(json_src, json_dst)
+                ot.copy_dir(json_src, json_dst)
 
                 png_src = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
                 png_dst = output_path + '/gray/carpet/'
@@ -71,7 +71,7 @@ class Blocks(BuildTexture):
                 for item in os.scandir(png_src):
                     if item.is_file() and item.name.startswith('wool') and item.name.endswith('.png'):
                         if 'wool_colored_white.png' not in texture_list:
-                            ot.copy(item.path, png_dst)
+                            ot.copy_file(item.path, png_dst)
                         else:
                             img = gs.build(item.path)
                             if not os.path.exists(png_dst):
@@ -85,11 +85,11 @@ class Blocks(BuildTexture):
                           'prismarine_rough.png', 'sea_lantern.png', 'water_flow.png', 'water_still.png']
         # files this pack didn't modify but need to grayscale
         for item in checklist:
-            ot.copy(self.vanilla_path + item, output_path)
+            ot.copy_file(self.vanilla_path + item, output_path)
             # dynamic blocks need .mcmeta files support
             if item in dynamic_blocks:
                 meta = item + '.mcmeta'
                 if not os.path.exists(output_path + '/' + meta):
-                    ot.copy(self.vanilla_path + meta, output_path)
+                    ot.copy_file(self.vanilla_path + meta, output_path)
 
         return True

@@ -36,11 +36,11 @@ class Item(BuildModel):
                         png_src = item.path
                     print(png_src)
                     print(png_dst)
-                    ot.copy(png_src, png_dst)
+                    ot.copy_file(png_src, png_dst)
 
                     # dynamic check
                     if os.path.exists(png_src + '.mcmeta'):
-                        ot.copy(png_src + '.mcmeta', png_dst)
+                        ot.copy_file(png_src + '.mcmeta', png_dst)
 
             else:  # change item but not block
                 self.build_json()
@@ -59,11 +59,11 @@ class Item(BuildModel):
                         img.save(png_dst + item.name)
                     else:
                         png_src = png_gray_src + item.name
-                        ot.copy(png_src, png_dst)
+                        ot.copy_file(png_src, png_dst)
 
                     # dynamic check
                     if os.path.exists(png_src + '.mcmeta'):
-                        ot.copy(png_src + '.mcmeta', png_dst)
+                        ot.copy_file(png_src + '.mcmeta', png_dst)
 
         super().build()
         return True
@@ -76,7 +76,7 @@ class Item(BuildModel):
         item_json_dst = output_path
         for item in os.scandir(item_json_src):
             if item.name.endswith('.json'):
-                ot.copy(item.path, item_json_dst)
+                ot.copy_file(item.path, item_json_dst)
 
         # make block-json locate to modified block-texture path
         block_json_src = './resource/1.8.9/assets/minecraft/gray/models/block/'
@@ -84,4 +84,4 @@ class Item(BuildModel):
         block_json_dst = output_path[:-len('item')] + 'block/gray'
         for item in os.scandir(block_json_src):
             if item.name.endswith('.json'):
-                ot.copy(item.path, block_json_dst)
+                ot.copy_file(item.path, block_json_dst)

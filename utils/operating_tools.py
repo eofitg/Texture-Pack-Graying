@@ -16,28 +16,30 @@ def clear():
         os.makedirs(output_path)
 
 
-def copy(src, dst):
+# dst: parent folder path
+def copy_file(src, dst):
     if not os.path.exists(dst):
         os.makedirs(dst)
     shutil.copy(src, dst)
 
 
-def copytree(src, dst):
+# dst: this folder path
+def copy_dir(src, dst):
     if os.path.exists(dst):
         shutil.rmtree(dst)
     shutil.copytree(src, dst)
 
 
-# Copy this file/folder to dst path anyway
-def copy_anyway(src, dst):
+# Copy this file / dir to dst path
+def copy(src, dst):
     s = str(src)
     if s.endswith('/'):
         s = src[:-1]
     name = s.split('/')[-1]
-    if name.find('.') < 0:  # dirs
-        copytree(src, dst)
-    else:  # files
-        copy(src, dst[:-len(name)])
+    if name.find('.') < 0:  # dir
+        copy_dir(src, dst)
+    else:  # file
+        copy_file(src, dst[:-len(name)])
 
 
 def del_dir(dst):
@@ -45,10 +47,10 @@ def del_dir(dst):
         shutil.rmtree(dst)
 
 
-# Add this file/folder from 'input' to 'output' anyway
+# Add this file / dir from 'input' to 'output' anyway
 # means copy directly, without any manipulation
 def build_anyway(src):
-    copy_anyway(src, get_output_path(src))
+    copy(src, get_output_path(src))
 
 
 # Get pack list

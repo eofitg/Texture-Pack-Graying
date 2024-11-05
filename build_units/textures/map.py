@@ -19,6 +19,6 @@ class Map(BuildTexture):
 
         checklist = super().build()
         for item in checklist:
-            ot.copy(self.vanilla_path + item, output_path)
+            ot.copy_file(self.vanilla_path + item, output_path)
 
         return True

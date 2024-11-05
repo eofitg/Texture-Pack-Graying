@@ -25,4 +25,4 @@ class BuildModel(Build):
 
         for mdl in os.scandir(self.resource_path):
             if not os.path.exists(ot.get_output_path(mdl.path)):
-                ot.copy(mdl.path, output_path)
+                ot.copy_file(mdl.path, output_path)

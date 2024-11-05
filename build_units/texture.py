@@ -68,4 +68,4 @@ def build(path):
             vanilla = './resource/1.8.9/assets/minecraft/gray/textures/'
             src = vanilla + texture
             dst = ot.get_output_path(path + '/' + texture)
-            ot.copytree(src, dst)
+            ot.copy_dir(src, dst)

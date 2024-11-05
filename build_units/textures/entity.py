@@ -30,8 +30,8 @@ class Entity(BuildTexture):
         checklist = super().build()
         for item in checklist:
             if item.endswith('.png'):
-                ot.copy(self.vanilla_path + item, output_path)
+                ot.copy_file(self.vanilla_path + item, output_path)
             else:
-                ot.copytree(self.vanilla_path + item, output_path)
+                ot.copy_dir(self.vanilla_path + item, output_path)
 
         return True
