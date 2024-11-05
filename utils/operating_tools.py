@@ -42,15 +42,15 @@ def copy(src, dst):
         copy_file(src, dst[:-len(name)])
 
 
-def del_dir(dst):
-    if os.path.exists(dst):
-        shutil.rmtree(dst)
-
-
 # Add this file / dir from 'input' to 'output' anyway
 # means copy directly, without any manipulation
 def build_anyway(src):
     copy(src, get_output_path(src))
+
+
+def del_dir(dst):
+    if os.path.exists(dst):
+        shutil.rmtree(dst)
 
 
 # Get pack list
