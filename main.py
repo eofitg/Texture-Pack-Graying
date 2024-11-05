@@ -28,7 +28,13 @@ def get_packs():
     return list(set(dirs))
 
 
-def build():
+if __name__ == '__main__':
+
+    # clear output folder
+    ot.clear()
+    if building_message:
+        print("Cleared output folder.")
+
     packs = get_packs()
 
     for pack in packs:
@@ -63,15 +69,5 @@ def build():
 
             # folders that never need to be greyed
             ot.build_anyway(folder.path)
-
-
-if __name__ == '__main__':
-
-    # clear output folder
-    ot.clear()
-    if building_message:
-        print("Cleared output folder.")
-
-    build()
 
     print("Done.")
