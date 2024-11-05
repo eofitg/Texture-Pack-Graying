@@ -1,16 +1,17 @@
 import os
 import zipfile
+import utils.operating_tools as ot
 
 
 def decompress(path):
     # name with ext
     item_name = os.path.basename(path)
-    parent_path = path[:-len(item_name)]
     # raw name without ext
     name, _ = os.path.splitext(item_name)
 
+    parent_path = ot.get_parent_path(path)
     file = zipfile.ZipFile(path)
-    file.extractall(parent_path + name)
+    file.extractall(os.path.join(parent_path, name))
     file.close()
 
 
