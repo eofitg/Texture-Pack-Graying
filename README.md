@@ -8,6 +8,17 @@ A grayscaling tool for Minecraft 1.8.9 texture packs.
 - [ ] Complete `clean` - to clean up first before building ✏️
 - [ ] Complete *isolation system* to enable the separation of block textures and held item textures into different modules
 
+### Features
+- Custom brightness
+- Keep cover image `pack.png`
+- Blocks
+  - Isolating wools and carpets
+- OptiFine
+  - Animation
+  - Block CTM
+  - Custom Sky
+- Whitelist to keep certain objects
+
 ### Usage
 * Put your texture packs in `./input/` folder, can be folders or `.zip` files
 * Run `./main.py` 
