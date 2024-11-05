@@ -24,8 +24,7 @@ def build(path):
 
     for folder in os.scandir(path):
         name = folder.name
-        if name.startswith('.'):
-            continue
+
         if name == 'blocks' and blocks.Blocks(folder.path).build():
             check.remove(name)
             continue

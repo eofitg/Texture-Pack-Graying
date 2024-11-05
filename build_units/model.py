@@ -11,8 +11,7 @@ def build(path):
 
     for folder in os.scandir(path):
         name = folder.name
-        if name.startswith('.'):
-            continue
+
         if name == 'block' and block.Block(folder.path).build():
             continue
         elif name == 'item' and item.Item(folder.path).build():

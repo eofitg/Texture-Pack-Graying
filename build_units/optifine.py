@@ -12,8 +12,7 @@ def build(path):
 
     for folder in os.scandir(path):
         name = folder.name
-        if name.startswith('.'):
-            continue
+
         if ((name == 'sky' or name == 'colormap')
                 and sky.Sky(folder.path).build()):
             continue

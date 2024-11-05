@@ -19,8 +19,7 @@ class BuildOptiFine(Build):
     def build(self):
 
         for item in os.scandir(self.resource_path):
-            if item.name.startswith('.'):
-                continue
+
             if item.name not in self.whitelist:
                 if item.is_file() and item.name.endswith('.png'):
                     gs.build_file(item.path)

@@ -5,14 +5,14 @@ import config_reader as cr
 import utils.operating_tools as ot
 
 
-def build(src):
-    # float number
-    brightness = cr.get('brightness')
+brightness = cr.get('brightness')  # float
 
+
+def build(src):
     img = Image.open(src).convert('RGBA')
     r, g, b, a = img.split()
 
-    # GRATING
+    # GRAYING
     gray_img = Image.merge('RGB', (r, g, b)).convert('L')
 
     # LIGHTING

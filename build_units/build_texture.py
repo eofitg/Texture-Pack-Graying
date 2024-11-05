@@ -27,15 +27,17 @@ class BuildTexture(Build):
         check_list = self.vanilla_list
 
         for item in os.scandir(self.resource_path):
-            if item.name in check_list:
-                if item.is_file() and item.name.endswith('.png'):
-                    gs.build_file(item.path)
-                    check_list.remove(item.name)
-                    continue
-                elif item.is_dir():
-                    gs.build_dir(item.path)
-                    check_list.remove(item.name)
-                    continue
+            if item.name not in check_list:
+                continue
+
+            if item.is_file() and item.name.endswith('.png'):
+                gs.build_file(item.path)
+                check_list.remove(item.name)
+                continue
+            elif item.is_dir():
+                gs.build_dir(item.path)
+                check_list.remove(item.name)
+                continue
 
             # files need to keep
             ot.build_anyway(item.path)
@@ -45,5 +47,6 @@ class BuildTexture(Build):
 
     def whitelist_check(self):
         for t in self.vanilla_list:
-            if wl.exist(t):
-                self.vanilla_list.remove(t)
+            if not wl.exist(t):
+                continue
+            self.vanilla_list.remove(t)

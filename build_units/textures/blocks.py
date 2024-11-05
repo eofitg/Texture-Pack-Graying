@@ -94,7 +94,7 @@ class Blocks(BuildTexture):
             # dynamic blocks need .mcmeta files support
             if item in dynamic_blocks:
                 meta = item + '.mcmeta'
-                if not os.path.exists(output_path + '/' + meta):
+                if not os.path.exists(os.path.join(output_path, meta)):
                     ot.copy_file(self.vanilla_path + meta, output_path)
 
         return True
