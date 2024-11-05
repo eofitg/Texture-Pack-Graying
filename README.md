@@ -16,10 +16,6 @@ A grayscaling tool for Minecraft 1.8.9 texture packs.
 Modify `config.yml` to discover your own unique visual effect.
 
 ### Known Bugs
-* `operating_tools.py`: `copy_anyway()`
-  * Can't work rightly on files / folders like
-    * `.Dsine`
-    * `1.8.9`
 
 ### Credits
 * [Merryzz](https://www.youtube.com/@Merryzz) (fr)
