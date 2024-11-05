@@ -1,6 +1,7 @@
 import os
 from PIL import Image, ImageEnhance
 
+import config_reader as cr
 import utils.operating_tools as ot
 
 
@@ -9,6 +10,9 @@ output_path = './output/'
 
 
 def build(src):
+    # float number
+    brightness = cr.get('brightness')
+
     img = Image.open(src).convert('RGBA')
     r, g, b, a = img.split()
 
@@ -17,7 +21,7 @@ def build(src):
 
     # LIGHTING
     enhancer = ImageEnhance.Brightness(grey_img)
-    dark_img = enhancer.enhance(0.25)
+    dark_img = enhancer.enhance(brightness)
 
     result_img = Image.merge('LA', (dark_img, a))
     return result_img
