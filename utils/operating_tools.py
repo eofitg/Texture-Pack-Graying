@@ -71,6 +71,11 @@ def get_pack_path(pack):
     return os.path.join(input_path, pack)
 
 
+# Get relative path from start in path
+def get_rela_path(path, start):
+    return os.path.relpath(path, start=start)
+
+
 # Turn input_path into output_path (No '/' at the end of path)
 def get_output_path(path):
-    return output_path + path[len(input_path):]
+    return os.path.join(output_path, get_rela_path(path, input_path))
