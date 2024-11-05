@@ -1,7 +1,7 @@
 import os
 
 import config_reader as cr
-import utils.decompress as dec
+import utils.zip_tools as zt
 import utils.operating_tools as ot
 from utils import clean
 from build_units import texture
@@ -23,7 +23,7 @@ def get_packs():
             dirs.append(item.path[len(input_path):])
         elif item.is_file() and item.name.endswith('.zip'):
             # decompress .zip files
-            dec.build(item.name)
+            zt.decompress(item.path)
             dirs.append(item.path[len(input_path):-4])
     return list(set(dirs))
 
