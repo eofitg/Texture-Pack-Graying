@@ -15,9 +15,10 @@ class Blocks(BuildTexture):
 
         temp = []
         for img in os.scandir(texture_path):
-            if img.is_file() and img.name.endswith('.png'):
-                if img.name in self.vanilla_list:
-                    temp.append(img.name)
+            if not img.is_file() or not img.name.endswith('.png'):
+                continue
+            if img.name in self.vanilla_list:
+                temp.append(img.name)
         self.texture_list = temp
 
     # ./input/{pack}/assets/minecraft/textures/blocks
@@ -34,14 +35,16 @@ class Blocks(BuildTexture):
         if cr.get('whitelist.blocks.carpet') == cr.get('whitelist.blocks.wool'):
             # carpet can be same as wool, don't need to modify
             pass
+
         else:
+            # make carpet-json locate to modified carpet-texture path, not original wool anymore
+            json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
+            # ./output/{pack}/assets/minecraft/models/block
+            json_dst = output_path[:-len('textures/blocks')] + 'models/block'
+            # print(json_dst)
+            ot.copy_dir(json_src, json_dst)
+
             if cr.get('whitelist.blocks.carpet'):  # change wool but not carpet
-                # make carpet-json locate to modified carpet-texture path, not original wool anymore
-                json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
-                # ./output/{pack}/assets/minecraft/models/block
-                json_dst = output_path[:-len('textures/blocks')] + 'models/block'
-                # print(json_dst)
-                ot.copy_dir(json_src, json_dst)
 
                 png_src = './resource/1.8.9/assets/minecraft/textures/blocks/'
                 png_dst = output_path + '/gray/carpet/'
@@ -50,16 +53,14 @@ class Blocks(BuildTexture):
                     png_src = self.resource_path
 
                 for item in os.scandir(png_src):
-                    if item.is_file() and item.name.startswith('wool') and item.name.endswith('.png'):
-                        ot.copy_file(item.path, png_dst)
+                    if not item.is_file():
+                        continue
+                    if not item.name.startswith('wool') or not item.name.endswith('.png'):
+                        continue
+
+                    ot.copy_file(item.path, png_dst)
 
             else:  # change carpet but not wool
-                # make carpet-json locate to modified carpet-texture path, not original wool anymore
-                json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
-                # ./output/{pack}/assets/minecraft/models/block
-                json_dst = output_path[:-len('textures/blocks')] + 'models/block'
-                # print(json_dst)
-                ot.copy_dir(json_src, json_dst)
 
                 png_src = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
                 png_dst = output_path + '/gray/carpet/'
@@ -69,14 +70,18 @@ class Blocks(BuildTexture):
 
                 # build gray wool texture for json of carpet
                 for item in os.scandir(png_src):
-                    if item.is_file() and item.name.startswith('wool') and item.name.endswith('.png'):
-                        if 'wool_colored_white.png' not in texture_list:
-                            ot.copy_file(item.path, png_dst)
-                        else:
-                            img = gs.build(item.path)
-                            if not os.path.exists(png_dst):
-                                os.makedirs(png_dst)
-                            img.save(png_dst + item.name)
+                    if not item.is_file():
+                        continue
+                    if not item.name.startswith('wool') or not item.name.endswith('.png'):
+                        continue
+
+                    if 'wool_colored_white.png' not in texture_list:
+                        ot.copy_file(item.path, png_dst)
+                    else:
+                        img = gs.build(item.path)
+                        if not os.path.exists(png_dst):
+                            os.makedirs(png_dst)
+                        img.save(png_dst + item.name)
 
         self.whitelist_check()
 
