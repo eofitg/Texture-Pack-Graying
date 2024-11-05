@@ -18,11 +18,11 @@ output_path = './output/'
 # if or not this path only has one dir
 # True -> return the path of this dir
 # False -> return ""
-def nest_check(path):
+def nest_check(_path):
     count = False
     res_path = ""
 
-    for item in os.scandir(path):
+    for item in os.scandir(_path):
 
         # ignore hidden items
         if item.name.startswith('.'):
