@@ -31,11 +31,11 @@ class Blocks(BuildTexture):
         output_path = ot.get_output_path(self.resource_path)
         # print(output_path)
 
-        # carpet
+        # carpet can be same as wool, don't need to modify
         if cr.get('whitelist.blocks.carpet') == cr.get('whitelist.blocks.wool'):
-            # carpet can be same as wool, don't need to modify
             pass
 
+        # carpet need to modify
         else:
             # make carpet-json locate to modified carpet-texture path, not original wool anymore
             json_src = './resource/1.8.9/assets/minecraft/gray/models/block/carpet/'
@@ -44,7 +44,8 @@ class Blocks(BuildTexture):
             # print(json_dst)
             ot.copy_dir(json_src, json_dst)
 
-            if cr.get('whitelist.blocks.carpet'):  # change wool but not carpet
+            # change wool but not carpet
+            if cr.get('whitelist.blocks.carpet'):
 
                 png_src = './resource/1.8.9/assets/minecraft/textures/blocks/'
                 png_dst = output_path + '/gray/carpet/'
@@ -60,7 +61,8 @@ class Blocks(BuildTexture):
 
                     ot.copy_file(item.path, png_dst)
 
-            else:  # change carpet but not wool
+            # change carpet but not wool
+            else:
 
                 png_src = './resource/1.8.9/assets/minecraft/gray/textures/blocks/'
                 png_dst = output_path + '/gray/carpet/'
