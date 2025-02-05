@@ -28,6 +28,7 @@ class Entity(BuildTexture):
         self.whitelist_check()
 
         checklist = super().build()
+        # files this pack didn't modify but need to grayscale
         for item in checklist:
             if item.endswith('.png'):
                 ot.copy_file(self.vanilla_path + item, output_path)
