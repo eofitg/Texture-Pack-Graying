@@ -20,7 +20,7 @@ def exist(item):
     if item.startswith('wool') and cr.get(bl + 'wool'):
         return True
     # bed
-    if item.startswith('bed') and cr.get(bl + 'bed'):
+    if item.startswith('bed_') and cr.get(bl + 'bed'):
         return True
     # tnt
     if item.startswith('tnt') and cr.get(bl + 'tnt'):
