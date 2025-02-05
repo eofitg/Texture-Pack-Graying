@@ -24,29 +24,29 @@ class BuildTexture(Build):
 
     # ./input/{pack}/assets/minecraft/textures
     def build(self):
+
         check_list = self.vanilla_list
 
         for item in os.scandir(self.resource_path):
+
+            # files need to keep (prob in wl)
             if item.name not in check_list:
+                ot.build_anyway(item.path)
                 continue
 
             if item.is_file() and item.name.endswith('.png'):
                 gs.build_file(item.path)
                 check_list.remove(item.name)
-                continue
             elif item.is_dir():
                 gs.build_dir(item.path)
                 check_list.remove(item.name)
-                continue
-
-            # files need to keep
-            ot.build_anyway(item.path)
 
         # return textures this pack didn't modify
         return check_list
 
     def whitelist_check(self):
-        for t in self.vanilla_list:
-            if not wl.exist(t):
-                continue
-            self.vanilla_list.remove(t)
+
+        for t in self.vanilla_list[:]:
+            if wl.exist(t):
+                self.vanilla_list.remove(t)
+
