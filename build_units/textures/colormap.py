@@ -18,6 +18,7 @@ class Colormap(BuildTexture):
         output_path = ot.get_output_path(self.resource_path)
 
         checklist = super().build()
+        # files this pack didn't modify but need to grayscale
         for item in checklist:
             ot.copy_file(self.vanilla_path + item, output_path)
 

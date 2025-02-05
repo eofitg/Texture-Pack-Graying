@@ -19,6 +19,7 @@ class Particle(BuildTexture):
         self.whitelist_check()
 
         checklist = super().build()
+        # files this pack didn't modify but need to grayscale
         for item in checklist:
             ot.copy_file(self.vanilla_path + item, output_path)
 
