@@ -63,8 +63,16 @@ def build(path):
 
     # folders this pack didn't modify but need to grayscale
     for texture in textures:
+
         if cr.get('texture.' + texture) and texture in check:
+
             vanilla = './resource/1.8.9/assets/minecraft/gray/textures/'
+
+            if texture == "underwater":
+                texture = "misc"
+            elif texture == "armor":
+                texture = "models"
+
             src = os.path.join(vanilla, texture)
             dst = ot.get_output_path(os.path.join(path, texture))
             ot.copy_dir(src, dst)
