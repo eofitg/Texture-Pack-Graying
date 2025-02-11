@@ -37,8 +37,4 @@ Modify `config.yml` to discover your own unique visual effect.
 
 ------------
 ### Notes
-
-- These textures are not included, as they are unnecessary
-  > assets/minecraft/textures/effect
-  > assets/minecraft/textures/font
 - Sometimes, it may be more effective to check sources yourself rather than asking for help.
