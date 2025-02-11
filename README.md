@@ -30,10 +30,11 @@ A grayscaling tool for Minecraft 1.8.9 texture packs.
 Modify `config.yml` to discover your own unique visual effect.
 
 ### Known Bugs
+- The **brightness** parameter does **not work** when a **texture** that needs grayscaling is **absent from the custom pack** (a vanilla texture).
 
 ---
 ### Credits
-* [Merryzz](https://www.youtube.com/@Merryzz) (fr)
+* [Merryzz](https://www.youtube.com/@Merryzz) (fr) 
 
 ------------
 ### Notes
