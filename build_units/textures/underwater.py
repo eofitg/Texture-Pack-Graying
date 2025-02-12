@@ -18,7 +18,7 @@ class Underwater(Build):
             return False
 
         vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/misc/underwater.png'
-        output_path = ot.get_output_path(self.resource_path)
+        output_path = ot.turn_output_path(self.resource_path)
         ot.build_anyway(self.resource_path)
         ot.copy_file(vanilla_path, output_path)
 

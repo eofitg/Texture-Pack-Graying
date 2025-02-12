@@ -21,8 +21,8 @@ class BuildModel(Build):
 
     # ./input/{pack}/assets/minecraft/models
     def build(self):
-        output_path = ot.get_output_path(self.resource_path)
+        output_path = ot.turn_output_path(self.resource_path)
 
         for mdl in os.scandir(self.resource_path):
-            if not os.path.exists(ot.get_output_path(mdl.path)):
+            if not os.path.exists(ot.turn_output_path(mdl.path)):
                 ot.copy_file(mdl.path, output_path)

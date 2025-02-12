@@ -21,7 +21,7 @@ class Item(BuildModel):
 
         if cr.get('isolate') and block_state != item_state:
 
-            png_dst = ot.get_output_path(self.resource_path)[:-len('models/item')] + 'textures/blocks/gray/'
+            png_dst = ot.turn_output_path(self.resource_path)[:-len('models/item')] + 'textures/blocks/gray/'
             if block_state:  # change block but not item
                 self.build_json()
                 # modify texture
@@ -69,7 +69,7 @@ class Item(BuildModel):
         return True
 
     def build_json(self):
-        output_path = ot.get_output_path(self.resource_path)
+        output_path = ot.turn_output_path(self.resource_path)
         # make item-json locate to modified block-json path
         item_json_src = './resource/1.8.9/assets/minecraft/gray/models/item/'
         # ./output/{pack}/assets/minecraft/models/item

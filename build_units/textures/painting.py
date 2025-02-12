@@ -15,7 +15,7 @@ class Painting(BuildTexture):
         if not cr.get('texture.painting'):
             return False
 
-        output_path = ot.get_output_path(self.resource_path)
+        output_path = ot.turn_output_path(self.resource_path)
 
         checklist = super().build()
         # files this pack didn't modify but need to grayscale

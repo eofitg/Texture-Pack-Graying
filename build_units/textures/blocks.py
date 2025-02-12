@@ -28,7 +28,7 @@ class Blocks(BuildTexture):
             return False
 
         texture_list = self.texture_list
-        output_path = ot.get_output_path(self.resource_path)
+        output_path = ot.turn_output_path(self.resource_path)
         # print(output_path)
 
         # carpet can be same as wool, don't need to modify

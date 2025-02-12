@@ -24,7 +24,7 @@ def build(src):
 
 
 def save(img, src):
-    dst = ot.get_output_path(src)
+    dst = ot.turn_output_path(src)
     parent = ot.get_parent_path(dst)
 
     if not os.path.exists(parent):

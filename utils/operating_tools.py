@@ -46,11 +46,12 @@ def copy(src, dst):
 # Add this file / dir from 'input' to 'output' anyway
 # means copy directly, without any manipulation
 def build_anyway(src):
-    copy(src, get_output_path(src))
+    copy(src, turn_output_path(src))
 
 
-# Turn input_path into output_path (No '/' at the end of path)
-def get_output_path(path):
+# Get output_path from custom pack path
+# like turn input_path into output_path (No '/' at the end of path)
+def turn_output_path(path):
     return os.path.join(output_path, get_relative_path(path, input_path))
 
 

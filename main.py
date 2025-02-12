@@ -103,12 +103,12 @@ if __name__ == '__main__':
             ot.build_anyway(folder.path)
 
         # Compress output
-        zt.compress(ot.get_output_path(pack_path))
+        zt.compress(ot.turn_output_path(pack_path))
         if building_message:
             print("Compressed output files.")
 
         # Delete previously decompressed dirs in the "input" folder
-        ot.delete_dir(ot.get_output_path(pack_path))
+        ot.delete_dir(ot.turn_output_path(pack_path))
         ot.delete_dir(pack_path_backup)
         if building_message:
             print("Cleared extra files.")

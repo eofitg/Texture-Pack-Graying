@@ -24,7 +24,7 @@ class Entity(BuildTexture):
         if not cr.get('texture.entity'):
             return False
 
-        output_path = ot.get_output_path(self.resource_path)
+        output_path = ot.turn_output_path(self.resource_path)
         self.whitelist_check()
 
         checklist = super().build()

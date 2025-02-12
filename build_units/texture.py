@@ -74,5 +74,5 @@ def build(path):
                 texture = "models"
 
             src = os.path.join(vanilla, texture)
-            dst = ot.get_output_path(os.path.join(path, texture))
+            dst = ot.turn_output_path(os.path.join(path, texture))
             ot.copy_dir(src, dst)
