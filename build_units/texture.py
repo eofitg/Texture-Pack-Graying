@@ -49,7 +49,7 @@ def build(path):
         elif name == 'map' and map.Map(folder.path).build():
             check.remove(name)
             continue
-        elif name == 'models' and armor.Armor(folder.path).build():
+        elif name == 'models' and armor.Armor(os.path.join(folder.path, "armor")).build():
             check.remove('armor')
             continue
         elif name == 'painting' and painting.Painting(folder.path).build():
