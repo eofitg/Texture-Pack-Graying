@@ -27,6 +27,17 @@ class BuildTexture(Build):
 
         check_list = self.vanilla_list
 
+        # parent dir exist but child not
+        # e.g. '/textures/models/' path exist but '/textures/models/armor/' not
+        if not os.path.exists(self.resource_path):
+            # Add all the vanilla textures to checklist
+            # also to avoid invalid path error crash
+            return check_list
+
+        # dir exist but empty
+        if len(os.listdir(self.resource_path)) == 0:
+            return check_list
+
         for item in os.scandir(self.resource_path):
 
             # files need to keep (prob in wl)
