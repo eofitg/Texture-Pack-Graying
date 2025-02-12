@@ -23,10 +23,15 @@ def build(src):
     return result_img
 
 
-def save(img, src):
+# save image from an input path
+def save_from(img, src):
     dst = ot.turn_output_path(src)
-    parent = ot.get_parent_path(dst)
+    save_to(img, dst)
 
+
+# save image to certain path
+def save_to(img, dst):
+    parent = ot.get_parent_path(dst)
     if not os.path.exists(parent):
         os.makedirs(parent)
     img.save(dst)
@@ -40,7 +45,7 @@ def build_dir(src):
 
         elif item.is_file() and item.path.endswith('.png'):
             result_img = build(item.path)
-            save(result_img, item.path)
+            save_from(result_img, item.path)
 
         else:
             ot.build_anyway(item.path)
@@ -48,5 +53,5 @@ def build_dir(src):
 
 def build_file(src):
     result_img = build(src)
-    save(result_img, src)
+    save_from(result_img, src)
 
