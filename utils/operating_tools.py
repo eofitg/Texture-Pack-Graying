@@ -50,7 +50,8 @@ def build_anyway(src):
 
 
 # Get output_path from custom pack path
-# like turn input_path into output_path (No '/' at the end of path)
+# means turn input_path into output_path (No '/' at the end of path)
+# just like replace the string "./input/" with "./output/" in a path
 def turn_output_path(path):
     return os.path.join(output_path, get_relative_path(path, input_path))
 
