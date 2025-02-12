@@ -37,6 +37,9 @@ def save_to(img, dst):
     img.save(dst)
 
 
+# Graying a folder
+# From a custom pack at the input folder
+# To output folder
 def build_dir(src):
     for item in os.scandir(src):
 
@@ -51,7 +54,23 @@ def build_dir(src):
             ot.build_anyway(item.path)
 
 
+# Graying an image
+# From a custom pack at the input folder
+# To output folder
 def build_file(src):
     result_img = build(src)
     save_from(result_img, src)
+
+
+# Graying an image
+# From the vanilla resource
+# To output folder
+# vanilla_path: the parent dir of this item in the vanilla resource
+# resource_path: the parent dir of this item in this pack (at the input folder)
+# item: the name of this item, include ext
+def build_vanilla_file(vanilla_path, resource_path, item):
+    src = os.path.join(vanilla_path, item)
+    dst = os.path.join(ot.turn_output_path(resource_path), item)
+    result_img = build(src)
+    save_to(result_img, dst)
 
