@@ -85,6 +85,7 @@ if __name__ == '__main__':
         if not os.path.exists(path):
             error_message = 'Incorrect pack folder at \"' + path + '\".'
             print(error_message)
+            continue
 
         # ./input/{pack}/assets/minecraft/
         for folder in os.scandir(path):
