@@ -83,7 +83,7 @@ if __name__ == '__main__':
         # try to get assets dir
         path = os.path.join(pack_path, 'assets/minecraft/')
         if not os.path.exists(path):
-            error_message = 'Incorrect pack folder at \"' + path + '\".'
+            error_message = 'Invalid pack folder at \"' + path + '\".'
             print(error_message)
             continue
 
