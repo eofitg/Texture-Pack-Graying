@@ -5,7 +5,7 @@ A grayscaling tool for Minecraft 1.8.9 texture packs.
 ### TO-DO
 - [ ] Make the internal elements of *environment & gui & misc & particle* **individually** configurable
 - [ ] Make built-in paths configurable
-- [ ] Rewrite `operating_tools` - to fix bugs related to paths ✏️
+- [x] Rewrite `operating_tools` - to fix bugs related to paths
 - [ ] Complete `clean` - to clean up first before building ✏️
 - [ ] Complete *isolation system* - to enable the separation of block textures and held item textures into different modules
 
