@@ -56,6 +56,11 @@ if __name__ == '__main__':
     packs = ot.get_packs()
     for pack in packs:
 
+        is_zip = False
+        if pack.endswith('.zip'):
+            is_zip = True
+            pack = os.path.splitext(packs)[0]
+
         # ./input/{pack}/
         pack_path = ot.get_pack_path(pack)
         pack_path_backup = pack_path
@@ -109,8 +114,10 @@ if __name__ == '__main__':
             print("Compressed output files.")
 
         # Delete previously decompressed dirs in the "input" folder
+        if is_zip:
+            ot.delete_dir(pack_path_backup)
+        # Delete building dirs in the "output" folder
         ot.delete_dir(ot.turn_output_path(pack_path))
-        ot.delete_dir(pack_path_backup)
         if building_message:
             print("Cleared extra files.")
 

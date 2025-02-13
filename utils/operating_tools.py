@@ -71,16 +71,13 @@ def get_packs():
     dirs = []
 
     for item in os.scandir(input_path):
+        _, ext = os.path.splitext(item.name)
 
-        raw_name, ext = os.path.splitext(item.name)
-
-        if item.is_dir():
-            dirs.append(get_relative_path(item.path, input_path))
-
-        elif item.is_file() and ext == '.zip':
+        if item.is_file() and ext == '.zip':
             # decompress .zip files
             zt.decompress(item.path)
-            dirs.append(raw_name)
+
+        dirs.append(item.name)
 
     return list(set(dirs))
 
