@@ -62,11 +62,8 @@ def get_relative_path(path, start):
 
 
 # Get parent path
-def get_parent_path(path: str):
-    if path.endswith(os.sep):
-        path = path[:-1]
-
-    return os.path.dirname(path)
+def get_parent_path(path):
+    return os.path.normpath(os.path.join(path, ".."))
 
 
 # Get pack list
