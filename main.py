@@ -59,7 +59,7 @@ if __name__ == '__main__':
         is_zip = False
         if pack.endswith('.zip'):
             is_zip = True
-            pack = os.path.splitext(packs)[0]
+            pack = os.path.splitext(pack)[0]
 
         # ./input/{pack}/
         pack_path = ot.get_pack_path(pack)
