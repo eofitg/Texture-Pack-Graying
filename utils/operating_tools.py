@@ -71,6 +71,10 @@ def get_packs():
     dirs = []
 
     for item in os.scandir(input_path):
+
+        if item.name.startswith('.'):
+            continue
+
         _, ext = os.path.splitext(item.name)
 
         if item.is_file() and ext == '.zip':
