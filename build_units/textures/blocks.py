@@ -13,22 +13,13 @@ class Blocks(BuildTexture):
         vanilla_path = './resource/1.8.9/assets/minecraft/textures/blocks/'
         super().__init__(vanilla_path, texture_path)
 
-        temp = []
-        for img in os.scandir(texture_path):
-            if not img.is_file() or not img.name.endswith('.png'):
-                continue
-            if img.name in self.vanilla_list:
-                temp.append(img.name)
-        self.texture_list = temp
-
     # ./input/{pack}/assets/minecraft/textures/blocks
     def build(self):
 
-        # armor part does not need to grayscale
+        # blocks part does not need to grayscale
         if not cr.get('texture.blocks'):
             return False
 
-        texture_list = self.texture_list
         output_path = ot.turn_output_path(self.resource_path)
 
         # carpet can be same as wool, don't need to modify
