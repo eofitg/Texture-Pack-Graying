@@ -13,7 +13,7 @@ class Armor(BuildTexture):
     # ./input/{pack}/assets/minecraft/textures/models/armor
     def build(self):
 
-        # armor part does not need to grayscale
+        # if armor part does not need to grayscale
         if not cr.get('texture.armor'):
             return False
 

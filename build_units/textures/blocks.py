@@ -16,7 +16,7 @@ class Blocks(BuildTexture):
     # ./input/{pack}/assets/minecraft/textures/blocks
     def build(self):
 
-        # blocks part does not need to grayscale
+        # if blocks part does not need to grayscale
         if not cr.get('texture.blocks'):
             return False
 
