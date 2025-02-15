@@ -1,6 +1,7 @@
 import os
 
 import utils.operating_tools as ot
+import utils.grayscaling as gs
 import config_reader as cr
 
 from build_units.textures import blocks
@@ -19,7 +20,9 @@ from build_units.textures import particle
 # ./input/{pack}/assets/minecraft/textures
 def build(path):
 
-    textures = ['blocks', 'colormap', 'entity', 'environment', 'gui', 'items', 'underwater', 'map', 'armor', 'painting', 'particle']
+    vanilla_path = './resource/1.8.9/assets/minecraft/textures/'
+    textures = ['blocks', 'colormap', 'entity', 'environment', 'gui', 'items',
+                'underwater', 'map', 'armor', 'painting', 'particle']
     check = textures
 
     for folder in os.scandir(path):
@@ -66,13 +69,9 @@ def build(path):
 
         if cr.get('texture.' + texture) and texture in check:
 
-            vanilla = './resource/1.8.9/assets/minecraft/gray/textures/'
-
             if texture == "underwater":
                 texture = "misc"
             elif texture == "armor":
                 texture = "models"
 
-            src = os.path.join(vanilla, texture)
-            dst = ot.turn_output_path(os.path.join(path, texture))
-            ot.copy_dir(src, dst)
+            gs.build_vanilla_dir(vanilla_path, path, texture)

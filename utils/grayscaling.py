@@ -62,6 +62,25 @@ def build_file(src):
     save_from(result_img, src)
 
 
+def build_vanilla_dir(vanilla_path, resource_path, item):
+    vanilla_src = os.path.join(vanilla_path, item)
+    custom_src = os.path.join(resource_path, item)
+
+    for _item in os.scandir(vanilla_src):
+
+        if _item.name == 'list.dat' or _item.name.startswith('.'):
+            continue
+
+        if _item.is_dir():
+            build_vanilla_dir(vanilla_src, custom_src, _item.name)
+
+        else:
+            if _item.name.endswith('.png'):
+                build_vanilla_file(vanilla_src, custom_src, _item.name)
+            elif _item.name.endswith('.mcmeta'):
+                ot.copy_file(_item.path, ot.turn_output_path(custom_src))
+
+
 # Graying an image
 # From the vanilla resource
 # To output folder
