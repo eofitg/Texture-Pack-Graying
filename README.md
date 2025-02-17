@@ -32,6 +32,8 @@ A grayscaling tool for Minecraft 1.8.9 texture packs.
 Modify `config.yml` to discover your own unique visual effect.
 
 ### Known Bugs
+- **Whitelist** check was not triggered when grayscaling folders in '/texture/' based on the original textures.
+  - `build_units/texture.py`: `build()` _line 77_
 - **Brightness** parameter does not work when a texture that needs grayscaling is absent from the custom pack (a _vanilla_ _texture_).
 - **Dynamic item** textures cannot be correctly modified (_clock_ and _compass_).  
 
