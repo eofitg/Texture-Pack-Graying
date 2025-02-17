@@ -24,6 +24,6 @@ class Entity(BuildTexture):
             if item.endswith('.png'):
                 gs.build_vanilla_file(self.vanilla_path, self.resource_path, item)
             else:
-                gs.build_vanilla_file(self.vanilla_path, self.resource_path, item)
+                gs.build_vanilla_dir(self.vanilla_path, self.resource_path, item)
 
         return True
