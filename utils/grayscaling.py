@@ -1,5 +1,6 @@
 import os
 from PIL import Image, ImageEnhance
+import numpy as np
 
 import config_reader as cr
 import utils.operating_tools as ot
@@ -90,6 +91,15 @@ def build_vanilla_dir(vanilla_path, resource_path, item):
 def build_vanilla_file(vanilla_path, resource_path, item):
     src = os.path.join(vanilla_path, item)
     dst = os.path.join(ot.turn_output_path(resource_path), item)
-    result_img = build(src)
-    save_to(result_img, dst)
 
+    vanilla_img = Image.open(src)
+    result_img = build(src)
+    if not compare_img(vanilla_img, result_img):
+        save_to(result_img, dst)
+
+
+# Compare two PIL images for exact equality
+def compare_img(img_1: Image.Image, img_2: Image.Image):
+    comp_1 = img_1.convert("RGBA")
+    comp_2 = img_2.convert("RGBA")
+    return np.array_equal(np.array(comp_1), np.array(comp_2))

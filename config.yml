@@ -47,9 +47,12 @@ whitelist:
     armorstand: false
     arrow: true
     chest: true
+    banner: false
     banner_base: false
+    beacon_beam: false
     boat: false
     enchanting_table_book: false
+    end_portal: false
     endercrystal: false
     experience_orb: false
     explosion: false

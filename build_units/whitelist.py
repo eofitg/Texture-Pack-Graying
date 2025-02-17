@@ -60,11 +60,12 @@ def exist(item):
     # entity
     en = wl + 'entity.'
     # living
-    livings = ['cat', 'cow', 'creeper', 'enderdragon', 'enderman', 'ghast', 'horse', 'pig', 'rabbit',
-               'sheep', 'skeleton', 'slime', 'spider', 'villager', 'wither', 'wolf', 'zombie',
-               'bat.png', 'blaze.png', 'chicken.png', 'endermite.png', 'guardian.png', 'guardian_beam.png',
-               'guardian_elder.png', 'iron_golem.png', 'silverfish.png', 'snowman.png', 'spider_eyes.png',
-               'squid.png', 'witch.png', 'zombie_pigman.png']
+    livings = ['alex.png', 'bat.png', 'blaze.png', 'cat', 'chicken.png', 'cow', 'creeper',
+               'enderdragon', 'enderman', 'endermite.png', 'ghast', 'guardian.png',
+               'guardian_beam.png', 'guardian_elder.png', 'horse', 'iron_golem.png',
+               'pig', 'rabbit', 'sheep', 'silverfish.png', 'skeleton', 'slime',
+               'snowman.png', 'spider', 'spider_eyes.png', 'squid.png', 'steve.png',
+               'villager', 'witch.png', 'wither', 'wolf', 'zombie', 'zombie_pigman.png']
     if item in livings and cr.get(en + 'living'):
         return True
     # armorstand
@@ -76,14 +77,23 @@ def exist(item):
     # chest
     if item.startswith('chest') and cr.get(en + 'chest'):
         return True
+    # banner
+    if item.startswith('banner') and cr.get(en + 'banner'):
+        return True
     # banner_base
     if item.startswith('banner_base') and cr.get(en + 'banner_base'):
+        return True
+    # beacon_beam
+    if item.startswith('beacon_beam') and cr.get(en + 'beacon_beam'):
         return True
     # boat
     if item.startswith('boat') and cr.get(en + 'boat'):
         return True
     # enchanting table book
     if item.startswith('enchanting_table_book') and cr.get(en + 'enchanting_table_book'):
+        return True
+    # end_portal
+    if item.startswith('end_portal') and cr.get(en + 'end_portal'):
         return True
     # endercrystal
     if item.startswith('endercrystal') and cr.get(en + 'endercrystal'):
