@@ -35,7 +35,6 @@ Modify `config.yml` to discover your own unique visual effect.
 - **Whitelist** check cannot be triggered when grayscaling folders in '/texture/' based on the original textures.
   - `build_units/texture.py`: `build()` _line 77_
 - **Brightness** parameter does not work when a texture that needs grayscaling is absent from the custom pack (a _vanilla_ _texture_).
-- **Dynamic item** textures cannot be correctly modified (_clock_ and _compass_).  
 
 ---
 ### Credits
