@@ -80,8 +80,6 @@ def build_vanilla_dir(vanilla_path, resource_path, item):
         else:
             if _item.name.endswith('.png'):
                 build_vanilla_file(vanilla_src, custom_src, _item.name)
-            elif _item.name.endswith('.mcmeta'):
-                ot.copy_file(_item.path, ot.turn_output_path(custom_src))
 
 
 # Graying an image
@@ -98,6 +96,8 @@ def build_vanilla_file(vanilla_path, resource_path, item):
     result_img = build(src)
     if not compare_img(vanilla_img, result_img):
         save_to(result_img, dst)
+        if os.path.exists(src + '.mcmeta'):
+            ot.copy_file(src + '.mcmeta', ot.get_parent_path(dst))
 
 
 # Compare two PIL images for exact equality
