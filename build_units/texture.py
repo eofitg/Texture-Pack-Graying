@@ -6,6 +6,7 @@ import config_reader as cr
 
 from build_units.textures import blocks
 from build_units.textures import colormap
+from build_units.textures import effect
 from build_units.textures import entity
 from build_units.textures import environment
 from build_units.textures import gui
@@ -21,7 +22,7 @@ from build_units.textures import particle
 def build(path):
 
     vanilla_path = './resource/1.8.9/assets/minecraft/textures/'
-    textures = ['blocks', 'colormap', 'entity', 'environment', 'gui', 'items',
+    textures = ['blocks', 'colormap', 'effect', 'entity', 'environment', 'gui', 'items',
                 'underwater', 'map', 'armor', 'painting', 'particle']
     check = textures
 
@@ -32,6 +33,9 @@ def build(path):
             check.remove(name)
             continue
         elif name == 'colormap' and colormap.Colormap(folder.path).build():
+            check.remove(name)
+            continue
+        elif name == 'effect' and effect.Effect(folder.path).build():
             check.remove(name)
             continue
         elif name == 'entity' and entity.Entity(folder.path).build():

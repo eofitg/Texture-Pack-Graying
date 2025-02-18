@@ -8,6 +8,7 @@ texture:
   # The color of the grass / leaves depends on the colormap
   # But still, some of their textures can never be changed by the resource pack
   colormap: true
+  effect: true  # dither effect
   entity: true
   environment: true
   gui: false
