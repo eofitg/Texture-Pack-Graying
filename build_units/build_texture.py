@@ -40,7 +40,9 @@ class BuildTexture(Build):
 
         for item in os.scandir(self.resource_path):
 
-            # files need to keep (prob in wl)
+            # files need to keep
+            # i.e. files in whitelist, custom files,
+            # or just mcmeta files because they are not listed in list.dat
             if item.name not in check_list:
                 ot.build_anyway(item.path)
                 continue
