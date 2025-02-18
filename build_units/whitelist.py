@@ -114,4 +114,26 @@ def exist(item):
     if item.startswith('sign') and cr.get(en + 'sign'):
         return True
 
+    # # # # #
+    # environment
+    envir = wl + 'environment.'
+    # clouds
+    if item.startswith('clouds') and cr.get(envir + 'clouds'):
+        return True
+    # end sky
+    if item.startswith('end_sky') and cr.get(envir + 'end_sky'):
+        return True
+    # moon
+    if item.startswith('moon') and cr.get(envir + 'moon'):
+        return True
+    # rain
+    if item.startswith('rain') and cr.get(envir + 'rain'):
+        return True
+    # snow
+    if item.startswith('snow') and cr.get(envir + 'snow'):
+        return True
+    # sun
+    if item.startswith('sun') and cr.get(envir + 'sun'):
+        return True
+
     return False

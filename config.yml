@@ -59,6 +59,13 @@ whitelist:
     lead_knot: false
     minecart: false
     sign: false
+  environment:
+    clouds: false
+    end_sky: true
+    moon: false
+    rain: false
+    snow: false
+    sun: false
 
 # Isolating Blocks and Items.
 # For blocks where its form of the item is the block itself.
