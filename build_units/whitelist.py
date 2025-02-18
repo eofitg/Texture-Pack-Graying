@@ -5,16 +5,13 @@ def exist(item):
 
     wl = 'whitelist.'
 
-    # # # # #
-    # blocks
+    ''' Blocks '''
     bl = wl + 'blocks.'
     # ladder
     if item.startswith('ladder') and cr.get(bl + 'ladder'):
         return True
     # wood
-    if item.startswith('log') and cr.get(bl + 'wood'):
-        return True
-    if item.startswith('planks') and cr.get(bl + 'wood'):
+    if item.startswith(('log', 'planks')) and cr.get(bl + 'wood'):
         return True
     # wool
     if item.startswith('wool') and cr.get(bl + 'wool'):
@@ -26,17 +23,19 @@ def exist(item):
     if item.startswith('tnt') and cr.get(bl + 'tnt'):
         return True
     # glass and glass pane
-    if item.startswith('glass_') and item != 'glass_pane_top.png' and cr.get(bl + 'stained_glass'):
+    if item in {'glass.png', 'glass_pane_top.png'} and cr.get(bl + 'glass'):
         return True
-    if item.startswith('glass') and cr.get(bl + 'glass'):
+    # stained-glass and stained-glass pane
+    if item.startswith('glass_') and item != 'glass_pane_top.png' and cr.get(bl + 'stained_glass'):
         return True
     # portal
     if item.startswith('portal') and cr.get(bl + 'portal'):
         return True
-    # harden clay
-    if item.startswith('hardened_clay_') and cr.get(bl + 'stained_hardened_clay'):
+    # hardened clay
+    if item == 'hardened_clay.png' and cr.get(bl + 'hardened_clay'):
         return True
-    if item.startswith('hardened_clay') and cr.get(bl + 'hardened_clay'):
+    # stained hardened clay
+    if item.startswith('hardened_clay_') and cr.get(bl + 'stained_hardened_clay'):
         return True
     # water
     if item.startswith('water_flow') and cr.get(bl + 'water.flow'):
@@ -49,15 +48,7 @@ def exist(item):
     if item.startswith('lava_still') and cr.get(bl + 'lava.still'):
         return True
 
-    # # # # #
-    # particle
-    pa = wl + 'particle.'
-    # footage
-    if item.startswith('footage') and cr.get(pa + 'footage'):
-        return True
-
-    # # # # #
-    # entity
+    ''' Entity '''
     en = wl + 'entity.'
     # living
     livings = ['alex.png', 'bat.png', 'blaze.png', 'cat', 'chicken.png', 'cow', 'creeper',
@@ -80,10 +71,10 @@ def exist(item):
     # banner
     if item.startswith('banner') and cr.get(en + 'banner'):
         return True
-    # banner_base
+    # banner base
     if item.startswith('banner_base') and cr.get(en + 'banner_base'):
         return True
-    # beacon_beam
+    # beacon beam
     if item.startswith('beacon_beam') and cr.get(en + 'beacon_beam'):
         return True
     # boat
@@ -92,7 +83,7 @@ def exist(item):
     # enchanting table book
     if item.startswith('enchanting_table_book') and cr.get(en + 'enchanting_table_book'):
         return True
-    # end_portal
+    # end portal
     if item.startswith('end_portal') and cr.get(en + 'end_portal'):
         return True
     # endercrystal
@@ -114,8 +105,7 @@ def exist(item):
     if item.startswith('sign') and cr.get(en + 'sign'):
         return True
 
-    # # # # #
-    # environment
+    ''' Environment '''
     envir = wl + 'environment.'
     # clouds
     if item.startswith('clouds') and cr.get(envir + 'clouds'):
@@ -134,6 +124,12 @@ def exist(item):
         return True
     # sun
     if item.startswith('sun') and cr.get(envir + 'sun'):
+        return True
+
+    ''' Particle '''
+    pa = wl + 'particle.'
+    # footage
+    if item.startswith('footage') and cr.get(pa + 'footage'):
         return True
 
     return False

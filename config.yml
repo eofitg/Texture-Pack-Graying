@@ -22,6 +22,7 @@ texture:
     anim: true
 
 whitelist:
+
   blocks:
     carpet: false
     ladder: false
@@ -40,8 +41,7 @@ whitelist:
     lava:
       flow: false
       still: false
-  particle:
-    footage: true
+
   entity:
     living: true
     armorstand: false
@@ -59,13 +59,17 @@ whitelist:
     lead_knot: false
     minecart: false
     sign: false
+
   environment:
     clouds: false
-    end_sky: true
+    end_sky: false
     moon: false
     rain: false
     snow: false
     sun: false
+
+  particle:
+    footage: true
 
 # Isolating Blocks and Items.
 # For blocks where its form of the item is the block itself.
