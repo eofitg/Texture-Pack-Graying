@@ -59,8 +59,10 @@ def build_dir(src):
 # From a custom pack at the input folder
 # To output folder
 def build_file(src):
+    custom_img = Image.open(src)
     result_img = build(src)
-    save_from(result_img, src)
+    if not compare_img(custom_img, result_img):
+        save_from(result_img, src)
 
 
 def build_vanilla_dir(vanilla_path, resource_path, item):
