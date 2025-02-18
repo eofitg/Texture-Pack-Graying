@@ -15,7 +15,7 @@ class BuildTexture(Build):
         super().__init__(texture_path)
 
         vanilla_list = []
-        with open(self.vanilla_path + 'list.dat', 'r') as file:
+        with open(os.path.join(self.vanilla_path, 'list.dat'), 'r') as file:
             line = file.readline().replace('\n', '')
             while line:
                 vanilla_list.append(line)
