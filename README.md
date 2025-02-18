@@ -3,7 +3,7 @@ A grayscaling tool for Minecraft 1.8.9 texture packs.
 
 ------------
 ### TO-DO
-- [ ] Make the internal elements of *environment & gui & misc & particle* **individually** configurable
+- [ ] Make the internal elements of *environment & gui & misc & particle* **individually** configurable ✏️
 - [ ] Make built-in paths configurable
 - [x] Rewrite `operating_tools` - to fix bugs related to paths
 - [ ] Complete `clean` - to clean up first before building ✏️
