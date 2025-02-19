@@ -113,7 +113,11 @@ whitelist:
     widgets: false
 
   particle:
-    footage: true
+
+    footprint: true
+
+    # Most of the vanilla particles
+    particles: false
 
 
 # Isolating Blocks and Items.

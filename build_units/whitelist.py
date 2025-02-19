@@ -170,8 +170,11 @@ def exist(item):
 
     ''' Particle '''
     pa = wl + 'particle.'
-    # footage
-    if item.startswith('footage') and cr.get(pa + 'footage'):
+    # footprint
+    if item.startswith('footprint') and cr.get(pa + 'footprint'):
+        return True
+    # most of the vanilla particles
+    if item.startswith('particles') and cr.get(pa + 'particles'):
         return True
 
     return False
