@@ -126,6 +126,48 @@ def exist(item):
     if item.startswith('sun') and cr.get(envir + 'sun'):
         return True
 
+    ''' GUI '''
+    gu = wl + 'gui.'
+    # achievement
+    if item.startswith('achievement') and cr.get(gu + 'achievement'):
+        return True
+    # book
+    if item.startswith('book') and cr.get(gu + 'book'):
+        return True
+    # container
+    if item.startswith('container') and cr.get(gu + 'container'):
+        return True
+    # demo background
+    if item.startswith('demo_background') and cr.get(gu + 'demo_background'):
+        return True
+    # icons
+    if item.startswith('icons') and cr.get(gu + 'icons'):
+        return True
+    # options background
+    if item.startswith('options_background') and cr.get(gu + 'options_background'):
+        return True
+    # preset world icon for new world generation
+    if item.startswith('presets') and cr.get(gu + 'presets'):
+        return True
+    # selection arrow in resource pack menu
+    if item.startswith('resource_packs') and cr.get(gu + 'resource_packs'):
+        return True
+    # server selections
+    if item.startswith('server_selections') and cr.get(gu + 'server_selections'):
+        return True
+    # spectator widgets
+    if item.startswith('spectator_widgets') and cr.get(gu + 'spectator_widgets'):
+        return True
+    # stream indicator
+    if item.startswith('stream_indicator') and cr.get(gu + 'stream_indicator'):
+        return True
+    # title text and background image
+    if item.startswith('title') and cr.get(gu + 'title'):
+        return True
+    # widgets
+    if item.startswith('widgets') and cr.get(gu + 'widgets'):
+        return True
+
     ''' Particle '''
     pa = wl + 'particle.'
     # footage

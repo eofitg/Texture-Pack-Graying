@@ -70,6 +70,21 @@ whitelist:
     snow: false
     sun: false
 
+  gui:
+    achievement: false
+    book: false
+    container: false
+    demo_background: false
+    icons: false
+    options_background: false
+    presets: false  # Preset world icon for new world generation
+    resource_packs: false  # Selection arrow in resource pack menu
+    server_selection: false
+    spectator_widgets: false
+    stream_indicator: false
+    title: false  # Include title text and background image
+    widgets: false
+
   particle:
     footage: true
 
