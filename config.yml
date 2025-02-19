@@ -1,31 +1,45 @@
 # 0 ~ 1, 0 = black, 1 = gray
 brightness: 0.25
+
+
 # Grayscale the cover image(pack.png) or not
 build_cover_image: True
 
+
 texture:
+
   blocks: true
+
   # The color of the grass / leaves depends on the colormap
   # But still, some of their textures can never be changed by the resource pack
   colormap: true
-  effect: true  # dither effect
+
+  # dither effect
+  effect: true
+
   entity: true
   environment: true
   font: false
   gui: false
   items: false
-  underwater: true  # color fog while player is under the water, vanilla is light blue
+
+  # color fog while player is under the water, vanilla is light blue
+  underwater: true
+
   map: false
   armor: false
   painting: true
   particle: false
+
   optifine:
     sky: true
     anim: true
 
+
 whitelist:
 
   blocks:
+
     carpet: false
     ladder: false
     wood: true
@@ -37,14 +51,17 @@ whitelist:
     portal: false
     hardened_clay: false
     stained_hardened_clay: false
+
     water:
       flow: true
       still: true
+
     lava:
       flow: false
       still: false
 
   entity:
+
     living: true
     armorstand: false
     arrow: true
@@ -63,6 +80,7 @@ whitelist:
     sign: false
 
   environment:
+
     clouds: false
     end_sky: false
     moon: false
@@ -71,22 +89,32 @@ whitelist:
     sun: false
 
   gui:
+
     achievement: false
     book: false
     container: false
     demo_background: false
     icons: false
     options_background: false
-    presets: false  # Preset world icon for new world generation
-    resource_packs: false  # Selection arrow in resource pack menu
+
+    # Preset world icon for new world generation
+    presets: false
+
+    # Selection arrow in resource pack menu
+    resource_packs: false
+
     server_selection: false
     spectator_widgets: false
     stream_indicator: false
-    title: false  # Include title text and background image
+
+    # Include title text and background image
+    title: false
+
     widgets: false
 
   particle:
     footage: true
+
 
 # Isolating Blocks and Items.
 # For blocks where its form of the item is the block itself.
