@@ -24,7 +24,7 @@ def build(path):
 
     vanilla_path = './resource/1.8.9/assets/minecraft/textures/'
     textures = ['blocks', 'colormap', 'effect', 'entity', 'environment', 'font', 'gui',
-                'items', 'map', 'misc', 'armor', 'painting', 'particle']
+                'items', 'map', 'misc', 'models', 'painting', 'particle']
     check = textures
 
     for folder in os.scandir(path):
@@ -60,8 +60,8 @@ def build(path):
         elif name == 'misc' and misc.Misc(folder.path).build():
             check.remove(name)
             continue
-        elif name == 'models' and armor.Armor(os.path.join(folder.path, "armor")).build():
-            check.remove('armor')
+        elif name == 'models' and armor.Armor(os.path.join(folder.path, 'armor')).build():
+            check.remove(name)
             continue
         elif name == 'painting' and painting.Painting(folder.path).build():
             check.remove(name)
@@ -75,9 +75,10 @@ def build(path):
     # folders this pack didn't modify but need to grayscale
     for texture in textures:
 
-        if cr.get('texture.' + texture) and texture in check:
+        if not cr.get('texture.' + texture):
+            continue
 
-            if texture == "armor":
-                texture = "models"
+        if texture not in check:
+            continue
 
-            gs.build_vanilla_dir(vanilla_path, path, texture)
+        gs.build_vanilla_dir(vanilla_path, path, texture)
