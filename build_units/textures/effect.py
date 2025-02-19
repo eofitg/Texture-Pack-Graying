@@ -12,7 +12,7 @@ class Effect(BuildTexture):
     # ./input/{pack}/assets/minecraft/textures/effect
     def build(self):
 
-        # if entity part does not need to grayscale
+        # if effect part does not need to grayscale
         if not cr.get('texture.effect'):
             return False
 
