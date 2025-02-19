@@ -33,7 +33,7 @@ Modify `config.yml` to discover your own unique visual effect.
 
 ### Known Bugs
 - For folders **Nested** in `/texture/`, if the resource pack author only modifies the deepest-level textures, other vanilla textures that require grayscaling will not be processed. 
-  For example, in `/texture/gui/container/`, if the author only modifies `/container/anvil.png`, all other files in `/texture/gui/container/` will never be grayscaled.
+  > For example, in `/texture/gui/container/`, if the author only modifies `/container/anvil.png`, all other files in `/texture/gui/container/` will never be grayscaled.
 - **Whitelist** check cannot be triggered when grayscaling folders in `/texture/` based on the original textures.
   - `build_units/texture.py`: `build()` _line 77_
 - **Brightness** parameter does not work when a texture that needs grayscaling is absent from the custom pack (a _vanilla_ _texture_).
