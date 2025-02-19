@@ -14,7 +14,7 @@ texture:
   # But still, some of their textures can never be changed by the resource pack
   colormap: true
 
-  # dither effect
+  # The dither effect
   effect: true
 
   entity: true
@@ -23,8 +23,8 @@ texture:
   gui: false
   items: false
 
-  # color fog while player is under the water, vanilla is light blue
-  underwater: true
+  # The miscellaneous textures (e.g. enchanted glint, shadow, vignette etc.)
+  misc: true
 
   map: false
   armor: false
@@ -111,6 +111,24 @@ whitelist:
     title: false
 
     widgets: false
+
+  misc:
+
+    enchanted_item_glint: true
+    forcefield: true
+    pumpkinblur: true
+
+    # The dark shadow under entities
+    shadow: true
+
+    # The color fog while player is under the water, vanilla is light blue
+    underwater: false
+
+    unknown_pack: false
+    unknown_server: false
+
+    # The black vignette effect around the screen
+    vignette: true
 
   particle:
 

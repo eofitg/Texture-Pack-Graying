@@ -1,25 +1,26 @@
-from build_units.build_texture import Build
-
-import os
-
-import utils.operating_tools as ot
+from build_units.build_texture import BuildTexture
+import utils.grayscaling as gs
 import config_reader as cr
 
 
-class Misc(Build):
+class Misc(BuildTexture):
 
     def __init__(self, texture_path):
-        super().__init__(texture_path)
+        vanilla_path = './resource/1.8.9/assets/minecraft/textures/misc/'
+        super().__init__(vanilla_path, texture_path)
 
-    # ./input/{pack}/assets/minecraft/textures/misc/
+    # ./input/{pack}/assets/minecraft/textures/misc
     def build(self):
-
-        if not cr.get('texture.underwater'):
+        
+        # if misc part does not need to grayscale
+        if not cr.get('texture.misc'):
             return False
 
-        vanilla_path = './resource/1.8.9/assets/minecraft/gray/textures/misc/underwater.png'
-        output_path = ot.turn_output_path(self.resource_path)
-        ot.build_anyway(self.resource_path)
-        ot.copy_file(vanilla_path, output_path)
+        self.whitelist_check()
+
+        checklist = super().build()
+        # files this pack didn't modify but need to grayscale
+        for item in checklist:
+            gs.build_vanilla_file(self.vanilla_path, self.resource_path, item)
 
         return True

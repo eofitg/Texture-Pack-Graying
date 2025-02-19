@@ -168,6 +168,33 @@ def exist(item):
     if item.startswith('widgets') and cr.get(gu + 'widgets'):
         return True
 
+    ''' Misc '''
+    mi = wl + 'misc.'
+    # enchanted item glint
+    if item.startswith('enchanted_item_glint') and cr.get(mi + 'enchanted_item_glint'):
+        return True
+    # force-field
+    if item.startswith('forcefield') and cr.get(mi + 'forcefield'):
+        return True
+    # pumpkin-blur
+    if item.startswith('pumpkinblur') and cr.get(mi + 'pumpkinblur'):
+        return True
+    # dark shadow under entities
+    if item.startswith('shadow') and cr.get(mi + 'shadow'):
+        return True
+    # color fog while player is under the water, vanilla is light blue
+    if item.startswith('underwater') and cr.get(mi + 'underwater'):
+        return True
+    # unknown pack icon
+    if item.startswith('unknown_pack') and cr.get(mi + 'unknown_pack'):
+        return True
+    # unknown server icon
+    if item.startswith('unknown_server') and cr.get(mi + 'unknown_server'):
+        return True
+    # black vignette effect around the screen
+    if item.startswith('vignette') and cr.get(mi + 'vignette'):
+        return True
+
     ''' Particle '''
     pa = wl + 'particle.'
     # footprint
