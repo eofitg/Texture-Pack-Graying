@@ -2,7 +2,7 @@
 brightness: 0.25
 
 
-# Grayscale the cover image(pack.png) or not
+# Grayscale the cover image (pack.png) or not
 build_cover_image: True
 
 
