@@ -36,7 +36,7 @@ Modify `config.yml` to discover your own unique visual effect.
 
   > For example, in `/texture/gui/container/`, if the author only modifies `/container/anvil.png`, all other files in `/texture/gui/container/` will never be grayscaled.
 - **Whitelist** check cannot be triggered when grayscaling folders in `/texture/` based on the original textures.
-  - `build_units/texture.py`: `build()` _line 77_
+  - `build_units/texture.py`: `build()` _line 75_
   
   > For example, if the `/texture/entity/` directory in the custom pack does _not exist_ or is _empty_, the whitelist check config in `whitelist.entity` will never be triggered. 
   > 
