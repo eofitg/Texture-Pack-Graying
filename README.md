@@ -37,6 +37,7 @@ Modify `config.yml` to discover your own unique visual effect.
 - **Whitelist** check cannot be triggered when grayscaling folders in `/texture/` based on the original textures.
   - `build_units/texture.py`: `build()` _line 77_
   > For example, if the `/texture/entity/` directory in the custom pack does _not exist_ or is _empty_, the whitelist check config in `whitelist.entity` will never be triggered. 
+  > 
   > This means that if `texture.entity` is set to `True`, _all_ the textures in this directory will be _grayscaled_, while if it is `False`, _all_ the textures will _retain_ their original color.
 - **Brightness** parameter does not work when a texture that needs grayscaling is absent from the custom pack (a _vanilla_ _texture_).
 
