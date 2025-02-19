@@ -11,6 +11,7 @@ texture:
   effect: true  # dither effect
   entity: true
   environment: true
+  font: false
   gui: false
   items: false
   underwater: true  # color fog while player is under the water, vanilla is light blue

@@ -9,6 +9,7 @@ from build_units.textures import colormap
 from build_units.textures import effect
 from build_units.textures import entity
 from build_units.textures import environment
+from build_units.textures import font
 from build_units.textures import gui
 from build_units.textures import items
 from build_units.textures import underwater
@@ -22,8 +23,8 @@ from build_units.textures import particle
 def build(path):
 
     vanilla_path = './resource/1.8.9/assets/minecraft/textures/'
-    textures = ['blocks', 'colormap', 'effect', 'entity', 'environment', 'gui', 'items',
-                'underwater', 'map', 'armor', 'painting', 'particle']
+    textures = ['blocks', 'colormap', 'effect', 'entity', 'environment', 'font', 'gui',
+                'items', 'underwater', 'map', 'armor', 'painting', 'particle']
     check = textures
 
     for folder in os.scandir(path):
@@ -42,6 +43,9 @@ def build(path):
             check.remove(name)
             continue
         elif name == 'environment' and environment.Environment(folder.path).build():
+            check.remove(name)
+            continue
+        elif name == 'font' and font.Font(folder.path).build():
             check.remove(name)
             continue
         elif name == 'gui' and gui.GUI(folder.path).build():
