@@ -12,8 +12,8 @@ from build_units.textures import environment
 from build_units.textures import font
 from build_units.textures import gui
 from build_units.textures import items
-from build_units.textures import underwater
 from build_units.textures import map
+from build_units.textures import misc
 from build_units.textures import armor
 from build_units.textures import painting
 from build_units.textures import particle
@@ -24,7 +24,7 @@ def build(path):
 
     vanilla_path = './resource/1.8.9/assets/minecraft/textures/'
     textures = ['blocks', 'colormap', 'effect', 'entity', 'environment', 'font', 'gui',
-                'items', 'underwater', 'map', 'armor', 'painting', 'particle']
+                'items', 'map', 'misc', 'armor', 'painting', 'particle']
     check = textures
 
     for folder in os.scandir(path):
@@ -54,10 +54,10 @@ def build(path):
         elif name == 'items' and items.Items(folder.path).build():
             check.remove(name)
             continue
-        elif name == 'misc' and underwater.Underwater(folder.path).build():
-            check.remove('underwater')
-            continue
         elif name == 'map' and map.Map(folder.path).build():
+            check.remove(name)
+            continue
+        elif name == 'misc' and misc.Misc(folder.path).build():
             check.remove(name)
             continue
         elif name == 'models' and armor.Armor(os.path.join(folder.path, "armor")).build():
@@ -77,9 +77,7 @@ def build(path):
 
         if cr.get('texture.' + texture) and texture in check:
 
-            if texture == "underwater":
-                texture = "misc"
-            elif texture == "armor":
+            if texture == "armor":
                 texture = "models"
 
             gs.build_vanilla_dir(vanilla_path, path, texture)

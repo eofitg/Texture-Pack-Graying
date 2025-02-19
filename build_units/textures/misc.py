@@ -6,12 +6,12 @@ import utils.operating_tools as ot
 import config_reader as cr
 
 
-class Underwater(Build):
+class Misc(Build):
 
     def __init__(self, texture_path):
         super().__init__(texture_path)
 
-    # ./input/{pack}/assets/minecraft/textures/misc/underwater.png
+    # ./input/{pack}/assets/minecraft/textures/misc/
     def build(self):
 
         if not cr.get('texture.underwater'):
