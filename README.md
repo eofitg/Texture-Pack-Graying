@@ -47,7 +47,8 @@ Modify `config.yml` to discover your own unique visual effect.
 ### Credits
 * [Merryzz](https://www.youtube.com/@Merryzz) (fr) 
 
-------------
+-----------
 ### Notes
+- The connected texture of CTM will override the whitelist settings. You may need to disable connected textures to ensure that some whitelisted textures are not modified.
 - Try to avoid opening the `./output/` directory during the build process, as it may prevent certain files from being deleted properly (e.g., system-generated files like `Thumbs.db` and `.DS_Store`), which can result in an incomplete build.
 - Sometimes, it may be more effective to check sources yourself rather than asking for help.
