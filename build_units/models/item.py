@@ -34,8 +34,6 @@ class Item(BuildModel):
                         png_src = png_pack_src + item.name
                     else:
                         png_src = item.path
-                    print(png_src)
-                    print(png_dst)
                     ot.copy_file(png_src, png_dst)
 
                     # dynamic check
