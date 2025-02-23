@@ -34,6 +34,7 @@ texture:
   optifine:
     sky: true
     anim: true
+    ctm: true
 
 
 whitelist:
@@ -44,10 +45,11 @@ whitelist:
     ladder: false
     wood: true
     wool: true
+    end_stone: true
     bed: true
     tnt: true
     glass: false
-    stained_glass: false
+    stained_glass: true
     portal: false
     hardened_clay: false
     stained_hardened_clay: false

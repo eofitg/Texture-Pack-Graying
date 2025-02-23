@@ -14,6 +14,9 @@ class CTM(BuildOptiFine):
         if not cr.get('texture.blocks'):
             return False
 
+        if not cr.get('texture.optifine.ctm'):
+            return False
+
         check_list = ['carpet', 'wood', 'wool', 'tnt', 'glass', 'stained_glass',
                       'hardened_clay', 'stained_hardened_clay']
         for item in check_list:

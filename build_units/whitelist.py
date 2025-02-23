@@ -16,6 +16,9 @@ def exist(item):
     # wool
     if item.startswith('wool') and cr.get(bl + 'wool'):
         return True
+    # end stone
+    if item.startswith('end_stone') and cr.get(bl + 'end_stone'):
+        return True
     # bed
     if item.startswith('bed_') and cr.get(bl + 'bed'):
         return True
