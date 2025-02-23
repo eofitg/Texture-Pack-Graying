@@ -27,7 +27,7 @@ texture:
   misc: true
 
   map: false
-  armor: false
+  models: false
   painting: true
   particle: false
 

@@ -14,7 +14,7 @@ class Armor(BuildTexture):
     def build(self):
 
         # if armor part does not need to grayscale
-        if not cr.get('texture.armor'):
+        if not cr.get('texture.models'):
             return False
 
         checklist = super().build()
