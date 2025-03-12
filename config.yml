@@ -1,5 +1,5 @@
 # 0 ~ 1, 0 = black, 1 = gray
-brightness: 0.25
+brightness: 0.1
 
 
 # Grayscale the cover image (pack.png) or not
@@ -42,8 +42,8 @@ whitelist:
   blocks:
 
     carpet: false
-    ladder: false
-    wood: true
+    ladder: true
+    wood: false
     wool: true
     end_stone: true
     bed: true
