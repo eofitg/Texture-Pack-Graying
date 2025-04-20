@@ -59,8 +59,8 @@ whitelist:
       still: true
 
     lava:
-      flow: false
-      still: false
+      flow: true
+      still: true
 
   entity:
 
